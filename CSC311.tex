@@ -1,11 +1,147 @@
 \documentclass[10pt]{LatexTemplate/hw}
 
 \begin{document}
+\setlength{\abovedisplayskip}{0pt} % Remove space above
+\setlength{\belowdisplayskip}{0pt} % Remove space below
 
-\begin{multicols}{5}
+\fontsize{9}{10}\selectfont
 
-\end{multicols}
+\begin{multicols*}{5}
+\tbf{Supervised Learning}: Find a mapping $f$ from input features \tbf{$x$} to target outputs $t$ using \tbf{labelled} training data (input-output pairs).\\
+\tbf{Unsupervised Learning}: Find interesting patterns in the data, e.g., find clusters, where \tbf{no target labels are given} (only inputs are given).\\
+\tbf{Reinforcement Learning:} Find a sequence of actions that produce a high reward signal in an environment.\\
+\rule{\linewidth}{0.4pt}
+\tbf{Training Set}: Used to learn the (\tit{parameters} of) the mapping $f$ from input features to the predicted output\\
+\tbf{Validation Set}: Used th choose \tit{hyperparameters} or model settings that are not provided by by the learning algorithm\\
+\tbf{Test Set}: Used to estimate how well the model will \tit{generalize} to new data and how well the model will perform when deployed\\
+\rule{\linewidth}{0.4pt}
+Training:\\
+\tbf{k-Nearest Neighbours}: No training necessary; just store the data \\
+\tbf{Decision Trees}: Greddy method: find the optimum split at each node, where ``optimum'' is determined by a loss, e.g., information gain\\
+\tbf{Linear Regression and Classification}: Find weights \tbf{$w$} that minimize a cost function, e.g., mean square error or average cross entropy loss across the training set\\
+\rule{\linewidth}{0.4pt}
+\tbf{$x^{(i)}_j$} represents the $j$-th feature of the $i$-th training example\\
+\tbf{Hypothesis} (model, predictor) is a function $f$ that maps input $x$ to output prediction $y$\\
+\tbf{Voroni diagram} partitions space into regions closest to each data\\
+\tbf{kNN}: $k$ too small may overfit (sensitive to noise), $k$ too large would underfit (fail to capture regularities)\\
+$k<\sqrt{n}$, choose $k$ with highest validation accuracy\\
+We use test data to estimate generalization error\\
+60\% training, 20\% validation and test\\
+We normalize each dimension to zero mean and unit variance\\
+\tbf{Curse of dimensionality}: data not dense in high dimensions, and hard to calculate distances. Most points are approximately equally distanced, squared Euclidean distance becomes dominated by the average behavior, making distances converge\\
+\tbf{Overfitting}: High training accuracy, poor test accuracy; model too complex, small data set, noise in data; regularization, better hyperparameters, better model\\
+\tbf{Underfitting}: Low training and test accuracy; model too simple, bad hyperparameters, bad model; adjust hyperparameters, regularization, normalization\\
+\rule{\linewidth}{0.4pt}
+\tbf{Decision Tree Output}: Most common value for discrete classification, or mean value for regression\\
+Use greedy heustic to construct decision tree based on (highest) information gain\\
+More certain outcome has lower entropy, i.e. not uniformly distributed\\
+\tbf{Entropy} characterizes uncertainty of random variable\\
+\tbf{Conditional Entrypy} characterizres uncertainty of random variable given another random variable\\
+\tbf{Information Gain} measures informativeness of variable\\
+Process: Pick a feature, compare all possible splits, choose the one with highest IG, repeat recursively\\
+We may minimize squared error instead: $SE=\sum_{i=1}^N(f(x^{(i)})-t^{(i)})^2$\\
+\rule{\linewidth}{0.4pt}
+A model is a set of assumptions (restrictions) about the structure of $f$\\
+The model or architecture restricts the hypothesis $f$ space\\
+\tbf{Goal of Linear Regression}: find $w$ (weights) and $b$ (bias) minimizing $\cal{E}(w,b)=\cal{E}(\mathbf{w})$\\
+Let $X$ be matrix with $N\times(D+1)$ shape with each $x^{(i)}$, then $\mathbf{y=Xw}$
+\tbf{Gradiant Descent} is more general than matrix inversion for finding $\mbf{w}$\\
+Each GD update costs $O(ND)$, $\mbf{w}\gets \mbf{w}-\al\na_{\mbf{w}}\cal{E}(\mbf{w})=\mbf{w}-\frac{\al}{N}\mbf{X}^T(\mbf{Xw-t})$, or $w_i\gets w_i-\al\PP{\cal{E}}{w_i}$, where initially $\al=0.002, w_i=b=0$ \\
+If $\al$ too small, training is slow, if $\al$ large, diverges\\
+\rule{\linewidth}{0.4pt}
+We may generalize linear regression by mapping input feature to another space, by feature mapping (or basis expansion): $\psi(\mathbf{x}):\mathbb{R}^D\to\mathbb{R}^d$, and treat $\mathbb{R}^d$ as input space, e.g. polynomial $\psi(x)=(1, x, ..., x^M)^T$, then $y=\psi(x)^T\mbf{w}$\\
+Adjust the degree of polynomial to avoid underfitting or overfitting\\
+\tbf{regularizer} or \tbf{penalty} is function that qualifies how much we prefer one hypothesis (penalize large weights)\\
+Both polynomial degree $M$ and $\la$ are hyperparameters\\
+$\la$ large cause underfit, $\la$ small cause overfit\\
+We want each feature's values to be indicators or orderable\\
+\tbf{ML Algorithm Design:} 1. Choose model; 2. Define loss function; 3. Choose regularizer; 4. Fit model by minimizing regularized cost, using \tbf{optimization algorithm}.\\
+$t=1$ for positive example, $t=0$ or $-1$ for negative example\\
+For \tbf{Linear Binary Classification Model}, let $z=\mbf{w}^Tx$, then $y=1$ if $z\ge0$, else $y=0$, decision boundary being hyperplane $z=0$\\
+Given small training set, go over each data point to find restrictions of $w_i$, if resion in weight space satisfying all constraints is non-empty, then this \tbf{feasible region} makes the problem (in)-\tbf{festible} and the training set \tbf{linearly separable}\\
+Use square error loss function would cause correctly classified points with high loss; use indicator loss function would cause gradiant be zero e.w.; use sigmoid plus square loss won't update much for very wrongly classified example, i.e. poor gradient signal\\
+We use sigmoid to smooth the output of each choice of $\mbf{w}$ between 0 and 1, then use cross entropy loss function to penalize the model for being wrong\\
+$\mbf{w}\gets \mbf{w}-\frac{\al}{N}\sum_{i=1}^N(y^{(i)}-t^{(i)})\mbf{x}^{(i)}$, same as linear regression\\
+\tbf{hypothesis space} $\cal{H}$ set of all possible $h$ a model can represent, i.e. all linear functions for linear regression\\
+Members of $\cal{H}$ with algorithm's preference determine \tbf{inductive bias}\\
+Algorithm is \tbf{parametric} if $\cal{H}$ is defined by a set of parameters (linear and logistic regression, neutral network; counter-example kNN)\\
+Previously we used \tbf{full batch gradient descent} of $\PP{\cal{E}}{w}$, we may estimate $\PP{\cal{E}}{w}$ using subset of data if $N$ too large, via \tbf{stochastic gradient descent}: computing average of a small number of examples called \tbf{mini-batch} with a \tbf{batch size}.\\
+inner loop is \tbf{iteration} (each mini-batch), outer is \tbf{epoch} (one update)\\
+$\T{num\_iter}=\T{num\_epoch}* N / \T{batch\_size}$
+
+\columnbreak
+\tbf{Accuracy}: $\frac1N\sum_{i=1}^N \mathbb{I}[t^{(i)} = y^{(i)}]$\\
+\tbf{Error}: $1 - \text{Accuracy}$\\
+\rule{\linewidth}{0.4pt}
+\tbf{Euclidean}:\\ $\norm{x^{(a)}-x^{(b)}}_2 = \sqrt{\displaystyle\sum_{j=1}^d(x_j^{(a)}-x_j^{(b)})^2}$\\
+\tbf{Cosine Similarity}:\\
+$\operatorname{cosine}(x^{(a)}, x^{(b)}) = \frac{x^{(a)}\cdot x^{(b)}}{\norm{x^{(a)}}_2\norm{x^{(b)}}_2}$\\
+\rule{\linewidth}{0.4pt}
+\tbf{Mean}: $\bar{x}=\frac1N\sum_{i=1}^Nx^{(i)}=\mu$\\
+\tbf{Variance}: $\si^2=\frac1N\sum_{i=1}^N(x^{(i)}-\bar{x})^2$\\
+\tbf{Standard Deviation}: $\si=\sqrt{\si^2}$\\
+\tbf{Normalization}: $\tilde{x}^{(i)}_j=\frac{x^{(i)}_j-\mu_j}{\si_j}$\\
+\rule{\linewidth}{0.4pt}
+\tbf{Entropy}:
+\begin{align*}
+    H(X)&=-\mathbb{E}_{X\sim p}[\log_2 p(X)]\\
+    &=-\textstyle\sum_{x\in X}p(x)\log_2p(x)\\
+    H(X,Y) &= - \textstyle\sum_{\stackrel{x\in X}{y\in Y}}p(x,y)\log_2p(x,y)\\
+    H(Y | x) &= - \textstyle\sum_{y\in Y}p(y|x)\log_2p(y|x)\\
+    H(Y|X) &= \textstyle\sum_{x\in X}p(x) H(Y|x)\\
+    &= - \textstyle\sum_{\stackrel{x\in X}{y\in Y}}p(x,y)\log_2p(y|x)\\
+    H(X,Y)&=H(Y,X)=H(X|Y)+H(Y)\\
+    H \ge 0, &H(Y|Y)=0, H(Y|X)\le H(Y)\\
+    H(Y|X)&=H(Y) \text{ if $X$ and $Y$ ind. }
+\end{align*}
+\tbf{Information Gain}:\\ $IG(Y|X)=H(Y)-H(Y|X)$\\
+\rule{\linewidth}{0.4pt}
+\tbf{Linear Model}:\\ $y=f(x)=\sum_{j=1}^D w_j x_j + b=\mathbf{\tilde{w}}^T\mathbf{\tilde{x}}$\\ where $\mathbf{\tilde{w}}_1=b,\mathbf{\tilde{w}}_i=w_{i-1}, \mathbf{\tilde{x}}_1=1, \mathbf{\tilde{x}}_i=x_{i-1}$\\
+\tbf{Squared error loss function}:\\ $\mathcal{L}(y,t)=\frac12(y-t)^2$\\$y-t$ is called residual\\
+\tbf{Cost (average loss) function}: \begin{align*}
+    \cal{E}(w,b)&=\frac1N\sum_{i=1}^N \cal{L}(y^{(i)}, t^{(i)})\\
+    &=\frac1{2N}(\mathbf{y}-\mathbf{t})^T(\mathbf{y}-\mathbf{t})\\
+    &=\frac1{2N}\norm{\mathbf{Xw-t}}_2^2
+\end{align*}
+$\PP{\cal{E}}{w}=\frac1{N}\sum_{j=1}^N (y^{(i)}-t^{(i)})x^{(i)}$\\
+$\PP{\cal{E}}{b}=\frac1{N}\sum_{j=1}^N (y^{(i)}-t^{(i)})$\\
+$\PP{\cal{L}}{w_j}=(y-t)x_j$\\
+$\na_\mbf{w} \cal{L}(\mbf{w}) = (y-t)\mbf{x}$
+\begin{align*}
+    \na_\mbf{w} \cal{E}(\mbf{w}) &= \frac1N \textstyle\sum_{i=1}^N (y^{(i)}-t^{(i)})\mbf{x}^{(i)}\\
+    &= \frac1N \mbf{X}^T(\mbf{Xw-t})
+\end{align*}
+$\na_\mbf{w} \cal{E}(\mbf{w})=0$: $\mbf{w}=(\mbf{X}^T\mbf{X})^{-1}\mbf{X}^T\mbf{t}$\\
+\rule{\linewidth}{0.4pt}
+\tbf{$L^2$ Regularizer}:\\ $\cal{R}(\mbf{w})=\frac12\norm{\mbf{w}}_2^2=\frac12\sum_{j=1}^D w_j^2$\\
+\tbf{Regularized cost function}:\\ $\cal{E}_{\T{reg}}(\mbf{w})=\cal{E}(\mbf{w})+\la\cal{R}(\mbf{w})$\\
+\rule{\linewidth}{0.4pt}
+\tbf{Logistic / Sigmoid function}:\\ $y=\si(z)=\frac1{1+e^{-z}}$\\
+Both sigmoid and square loss:\\ $\PP{\cal{L}}{w_j}=(y-t)y(1-y)x_j$\\
+\tbf{Cross Entropy Loss}: \begin{align*}
+    &\cal{L}_{\T{CE}}(y,t)\\
+    &=\begin{cases}
+        -\log(y) & \T{if } t=1\\
+        -\log(1-y) & \T{if } t=0
+    \end{cases}\\
+    &= -t\log(y)-(1-t)\log(1-y)
+\end{align*}
+$\PP{\cal{L}_{\T{CE}}}{w_j}=(y-t)x_j$\\
+\rule{\linewidth}{0.4pt}
+\tbf{3rd column cont.}, batch size too large = expensive, too small = noisy\\
+center and normalize to avoid ravines\\
+\rule{\linewidth}{0.4pt}
+\tbf{Graph of kNN}: Draw tangent line at each midpoint, connect regions with same class\\
+\tbf{Graph of Decision Tree}: Draw axis-aligned lines to split regions\\
+\tbf{IG of Decision Tree}: First calculate the entropy $H(Y)$ with probability (percentages) of each class, similarly for $H(Y|\T{right}),H(Y|\T{left})$, then $IG=H(Y)-p(\T{right})H(Y|\T{right})-p(\T{left})H(Y|\T{left})$\\
+\tbf{Shape}: \# of rows $\times$ \# of columns\\
+\rule{\linewidth}{0.4pt}
+Linear Regression: Square error loss function, with average loss cost function\\
+Logistic Regression: Sigmoid function, with cross entropy loss function\\
+Decision Tree: Greedy method, with information gain loss function\\
+kNN: No training, with Euclidean distance for lower dimension $D$\\
 
 
+\end{multicols*}
 
 \end{document}

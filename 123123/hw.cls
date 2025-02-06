@@ -87,13 +87,14 @@
     \PassOptionsToClass{\CurrentOption}{article}
 }
 \ProcessKeyvalOptions*\relax
-\LoadClass[landscape, a4paper]{article}
+\LoadClass{article}
+
 
 \ifdefstring{\ALB@marg}{0.5in}{
-    \RequirePackage[top=1mm,bottom=1mm,left=1mm,right=1mm]{geometry}
+    \RequirePackage[top=1mm,bottom=1mm,left=1mm,right=1mm,letterpaper,landscape]{geometry}
 }{\relax}
 \ifdefstring{\ALB@marg}{1in}{
-    \RequirePackage[top=1mm,bottom=1mm,left=1mm,right=1mm]{geometry}
+    \RequirePackage[top=1mm,bottom=1mm,left=1mm,right=1mm,letterpaper,landscape]{geometry}
 }{\relax}
 
 
@@ -112,7 +113,7 @@
     \BeforeBeginEnvironment{#1}{\savenotes}
     \AfterEndEnvironment{#1}{\spewnotes}
 }
-\pagenumbering{gobble}
+
 \RequirePackage{silence}
 %Disable all warnings issued by latex starting with "You have..."
 \WarningFilter{latex}{You have requested package}
@@ -124,6 +125,12 @@
 
 
 \newcommand\mailto[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+
+%Header and footer
+\RequirePackage{xcolor, fancyhdr, lastpage, fourier-orns, pgfornament}
+\def\headerfootercolor{\color{ecolor!80!black}} %header & footer color
+%header line
+\RequirePackage{hieroglf}
 
 \newcommand*{\coverpage}[1][\clsfiles/stars]{
     \newgeometry{margin = 0in}
@@ -165,6 +172,12 @@
     \np
     \pagestyle{style}
 }
+% later page style
+\fancypagestyle{style}{
+    \fancyhf{}
+    \ifcsdef{course}{\lhead{\headerfootercolor\course}}{}
+    \ifcsdef{name}{\rhead{\headerfootercolor\name}}{}
+}
 % declare first page style
 % \AtBeginDocument{\thispagestyle{firstpagestyle}}
 
@@ -192,6 +205,8 @@
 
 \RequirePackage{anyfontsize}
 \RequirePackage{graphicx}
+\definecolor{winered}{rgb}{0.5,0,0}
+\definecolor{epubblue}{RGB}{1,126,218}
 \RequirePackage{xpatch}
 \RequirePackage{hyperref}
 \hypersetup{
@@ -207,15 +222,161 @@
 % list/itemize/enumerate setting
 %%% \RequirePackage[shortlabels,inline]{enumitem}
 %%% \setlist{nolistsep}
+\RequirePackage[flushmargin,stable]{footmisc}
+\setlength{\footnotesep}{12pt}
 \RequirePackage{titlesec}
 \titleformat*{\section}{\Large\bfseries\color{ecolor}}
 \titleformat*{\subsection}{\large\bfseries\color{ecolor}}
 \titleformat*{\subsubsection}{\normalsize\bfseries\color{ecolor}}
+% Define colors
+\ifdefstring{\ALB@color}{green}{
+    \definecolor{ecolor}{RGB}{0,120,2}%
+    \definecolor{main}{RGB}{0,120,2}%
+    \definecolor{second}{RGB}{230,90,7}%
+    \definecolor{third}{RGB}{0,160,152}%
+    \definecolor{textcol}{RGB}{0,0,0}
+}{\relax}
+\ifdefstring{\ALB@color}{cyan}{
+    \definecolor{ecolor}{RGB}{31,186,190}%
+    \definecolor{main}{RGB}{59,180,5}%
+    \definecolor{second}{RGB}{175,153,8}%
+    \definecolor{third}{RGB}{244,105,102}%
+    \definecolor{textcol}{RGB}{0,0,0}
+}{\relax}
+\ifdefstring{\ALB@color}{blue}{
+    \definecolor{ecolor}{RGB}{1,126,218}%
+    \definecolor{main}{RGB}{0,166,82}%
+    \definecolor{second}{RGB}{255,134,24}%
+    \definecolor{third}{RGB}{0,174,247}%
+    \definecolor{textcol}{RGB}{0,0,0}
+}{\relax}
+\ifdefstring{\ALB@color}{sakura}{
+    \definecolor{ecolor}{RGB}{255,183,197}%
+    \definecolor{main}{RGB}{59,180,5}%
+    \definecolor{second}{RGB}{175,153,8}%
+    \definecolor{third}{RGB}{244,105,102}%
+    \definecolor{textcol}{RGB}{0,0,0}
+}{\relax}
+\ifdefstring{\ALB@color}{black}{
+    \definecolor{ecolor}{RGB}{0,0,0}%
+    \definecolor{main}{RGB}{0,0,0}%
+    \definecolor{second}{RGB}{0,0,0}%
+    \definecolor{third}{RGB}{0,0,0}%
+    \definecolor{textcol}{RGB}{0,0,0}
+}{\relax}
+\ifdefstring{\ALB@color}{brown}{
+    \definecolor{ecolor}{RGB}{109,62,18}%
+    \definecolor{main}{RGB}{0,166,82}%
+    \definecolor{second}{RGB}{255,134,24}%
+    \definecolor{third}{RGB}{0,174,247}%
+    \definecolor{textcol}{RGB}{0,0,0}
+}{\relax}
+\ifdefstring{\ALB@color}{white}{
+    \definecolor{ecolor}{RGB}{255,255,255}%
+    \definecolor{main}{RGB}{0,166,82}%
+    \definecolor{second}{RGB}{255,134,24}%
+    \definecolor{third}{RGB}{0,174,247}%
+    \definecolor{textcol}{RGB}{255,255,255}
+}{\relax}
+\ifdefstring{\ALB@color}{red}{
+    \definecolor{ecolor}{RGB}{255,0,0}%
+    \definecolor{main}{RGB}{255,0,0}%
+    \definecolor{second}{RGB}{255,0,0}%
+    \definecolor{third}{RGB}{255,0,0}%
+    \definecolor{textcol}{RGB}{0,0,0}
+}{\relax}
+\ifdefstring{\ALB@color}{orange}{
+    \definecolor{ecolor}{RGB}{255,165,0}%
+    \definecolor{main}{RGB}{255,165,0}%
+    \definecolor{second}{RGB}{255,165,0}%
+    \definecolor{third}{RGB}{255,165,0}%
+    \definecolor{textcol}{RGB}{0,0,0}
+}{\relax}
+\ifdefstring{\ALB@color}{purple}{
+    \definecolor{ecolor}{RGB}{128,0,128}%
+    \definecolor{main}{RGB}{128,0,128}%
+    \definecolor{second}{RGB}{128,0,128}%
+    \definecolor{third}{RGB}{128,0,128}%
+    \definecolor{textcol}{RGB}{0,0,0}
+}{\relax}
 \RequirePackage{hologo}
+% good for eye color 
+\ifdefstring{\ALB@mode}{geye}{
+    \definecolor{geyecolor}{RGB}{199,237,204}%
+    \pagecolor{geyecolor}
+}{\relax}
+\ifdefstring{\ALB@mode}{hazy}{
+    \definecolor{geyecolor}{RGB}{251,250,248}%
+    \pagecolor{geyecolor}
+}{\relax}
+\ifdefstring{\ALB@mode}{sepia}{
+    \definecolor{geyecolor}{RGB}{250,237,225}%
+    \pagecolor{geyecolor}
+}{\relax}
+\ifdefstring{\ALB@mode}{night}{
+    \definecolor{textcol}{RGB}{255,255,255}
+    \definecolor{nightcolor}{RGB}{64,64,64}%
+    %\pagecolor{nightcolor}
+    \renewcommand{\thmopacity}{0.1}
+    \lstset{
+        frame=tb,
+        language=\defaultlanguage,
+        aboveskip=3mm,
+        belowskip=3mm,
+        showstringspaces=false,
+        basicstyle={\small\ttfamily},
+        breaklines=true,
+        breakatwhitespace=true,
+        tabsize=3,
+        numbers=left,
+        keywordstyle=\color{second},
+        commentstyle=\color{third},
+        stringstyle=\color{main},
+        numberstyle=\scriptsize,
+        columns=flexible,
+    }
+
+    \RequirePackage{background}
+    \backgroundsetup{
+        scale=1,
+        color=black,
+        opacity=1,
+        angle=0,
+        contents={
+                \includegraphics[width=\paperwidth,height=\paperheight]{\nightmodebackground}
+            }
+    }
+}{
+    \definecolor{dkgreen}{rgb}{0,0.6,0}
+    \definecolor{gray}{rgb}{0.5,0.5,0.5}
+    \definecolor{mauve}{rgb}{0.58,0,0.82}
+    \lstset{frame=tb,
+        language=\defaultlanguage,
+        aboveskip=3mm,
+        belowskip=3mm,
+        showstringspaces=false,
+        columns=flexible,
+        basicstyle={\small\ttfamily},
+        numberstyle=\scriptsize,
+        keywordstyle=\color{blue},
+        commentstyle=\color{dkgreen},
+        stringstyle=\color{mauve},
+        breaklines=true,
+        breakatwhitespace=true,
+        tabsize=3,
+        numbers=left,
+    }
+}
 \let\openbox\relax
 \newcommand{\globalcolor}[1]{%
     \color{#1}\global\let\default@color\current@color
 }
+\AtBeginDocument{\globalcolor{textcol}}
+\definecolor{egreen}{RGB}{0,120,2}
+\definecolor{ecyan}{RGB}{0,175,152}
+\definecolor{eblue}{RGB}{20,50,104}
+\definecolor{sakura}{RGB}{255,183,197}
+\definecolor{brown}{RGB}{109,62,18}
 % tikz
 \RequirePackage{tikz}
 \usetikzlibrary{angles,quotes}
