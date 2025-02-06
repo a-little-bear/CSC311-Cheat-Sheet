@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  6 FEB 2025 03:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  6 FEB 2025 07:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -713,8 +713,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip74
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 221.
-Package hyperref Info: Option `colorlinks' set `true' on input line 221.
+Package hyperref Info: Option `colorlinks' set `true' on input line 248.
+Package hyperref Info: Option `colorlinks' set `true' on input line 248.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2023/07/05 v6.0f a miscellany of footnote facilities
 \FN@temptoken=\toks56
@@ -912,23 +912,23 @@ LaTeX Font Info:    ... okay on input line 3.
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: letterpaper
+* paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: landscape 
-* h-part:(L,W,R)=(2.84526pt, 789.27946pt, 2.84526pt)
-* v-part:(T,H,B)=(2.84526pt, 608.60448pt, 2.84526pt)
-* \paperwidth=794.96999pt
-* \paperheight=614.295pt
-* \textwidth=789.27946pt
-* \textheight=608.60448pt
-* \oddsidemargin=-69.42473pt
-* \evensidemargin=-69.42473pt
-* \topmargin=-106.42473pt
-* \headheight=12.0pt
+* modes: 
+* h-part:(L,W,R)=(36.135pt, 542.02501pt, 36.135pt)
+* v-part:(T,H,B)=(36.135pt, 722.7pt, 36.135pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=542.02501pt
+* \textheight=722.7pt
+* \oddsidemargin=-36.135pt
+* \evensidemargin=-36.135pt
+* \topmargin=-73.135pt
+* \headheight=35.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
-* \footskip=30.0pt
+* \footskip=0.5pt
 * \marginparwidth=65.0pt
 * \marginparsep=11.0pt
 * \columnsep=10.0pt
@@ -1024,13 +1024,293 @@ LaTeX Font Info:    Trying to load font information for U+wasy on input line 10.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) train-ing data (input-
+ []
+
+
+Underfull \hbox (badness 6157) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) learn the (\OT1/lmr/m/it/9 (+20) pa-ram-e-ters
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/bx/n/9 (+20) Decision Trees\OT1/lmr/m/n/9 (+20) :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/bx/n/9 (+20) Linear Re-gres-sion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/bx/n/9 (+20) and Clas-si-fi-ca-tion\OT1/lmr/m/n/9 (+20) :
+ []
+
+
+Underfull \hbox (badness 5417) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) Find weights $\OML/lmm/m/it/9 w$ \OT1/lmr/m/n/9 (+20) that
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/bx/n/9 (+20) Hypothesis \OT1/lmr/m/n/9 (+20) (model,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) over-fit (sen-si-tive to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) ap-prox-i-mately equally
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/bx/n/9 (+20) Underfitting\OT1/lmr/m/n/9 (+20) : Low
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) bad hy-per-pa-ram-e-ters,
+ []
+
+
+Underfull \hbox (badness 6063) in paragraph at lines 10--71
+\OT1/lmr/bx/n/9 (+20) Entropy \OT1/lmr/m/n/9 (+20) char-ac-ter-izes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) char-ac-ter-izres un-cer-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) com-pare all pos-si-ble
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) We may min-i-mize
+ []
+
+
+Underfull \hbox (badness 5475) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) squared er-ror in-stead:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) The model or ar-chi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) tec-ture re-stricts the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) Each GD up-date
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/bx/n/9 (+20) w \OMS/lmsy/m/n/9 ^^@ \OML/lmm/m/it/9 \OMS/lmsy/m/n/9 r[]E\OT1/lmr/m/n/9 (+20) (\OT1/lmr/bx/n/9 (+20) w\OT1/lmr/m/n/9 (+20) ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) in-put fea-ture to an-
+ []
+
+
+Underfull \hbox (badness 6032) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) how much we pre-fer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/bx/n/9 (+20) op-ti-miza-tion al-go-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) For \OT1/lmr/bx/n/9 (+20) Lin-ear Bi-nary
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) func-tion would cause
+ []
+
+
+Underfull \hbox (badness 7777) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) Members of $\OMS/lmsy/m/n/9 H$ \OT1/lmr/m/n/9 (+20) with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) al-go-rithm's pref-er-ence
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--71
+\OT1/lmr/m/n/9 (+20) de-ter-mine \OT1/lmr/bx/n/9 (+20) in-duc-tive
+ []
+
+
+Underfull \hbox (badness 7740) in paragraph at lines 10--71
+\OT1/lmr/bx/n/9 (+20) batch gra-di-ent de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--86
+[]\OT1/lmr/bx/n/9 (+20) Accuracy\OT1/lmr/m/n/9 (+20) :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--86
+[][] \OT1/lmr/m/n/9 (+20) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--86
+[]\OT1/lmr/m/n/9 (+20) (\OML/lmm/m/it/9 x[]; x[]\OT1/lmr/m/n/9 (+20) ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--86
+\OT1/lmr/bx/n/9 (+20) Mean\OT1/lmr/m/n/9 (+20) : $[] =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--86
+\OT1/lmr/bx/n/9 (+20) Variance\OT1/lmr/m/n/9 (+20) : $\OML/lmm/m/it/9 ^^[[] \OT1/lmr/m/n/9 (+20) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--86
+\OT1/lmr/bx/n/9 (+20) Normalization\OT1/lmr/m/n/9 (+20) :
+ []
+
+
+Underfull \hbox (badness 5924) in paragraph at lines 96--101
+\OT1/lmr/bx/n/9 (+20) Squared er-ror loss
+ []
+
+
+Underfull \hbox (badness 5008) in paragraph at lines 113--121
+\OT1/lmr/bx/n/9 (+20) Lo-gis-tic / Sig-moid
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--143
+\OT1/lmr/bx/n/9 (+20) 3rd col-umn cont.\OT1/lmr/m/n/9 (+20) ,
+ []
+
+
+Underfull \hbox (badness 6477) in paragraph at lines 128--143
+\OT1/lmr/bx/n/9 (+20) Graph of De-ci-sion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--143
+\OML/lmm/m/it/9 H\OT1/lmr/m/n/9 (+20) (\OML/lmm/m/it/9 Y\OMS/lmsy/m/n/9 j[]\OT1/lmr/m/n/9 (+20) )\OML/lmm/m/it/9 ; H\OT1/lmr/m/n/9 (+20) (\OML/lmm/m/it/9 Y\OMS/lmsy/m/n/9 j[]\OT1/lmr/m/n/9 (+20) )$,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--143
+\OML/lmm/m/it/9 p\OT1/lmr/m/n/9 (+20) ([])\OML/lmm/m/it/9 H\OT1/lmr/m/n/9 (+20) (\OML/lmm/m/it/9 Y\OMS/lmsy/m/n/9 j[]\OT1/lmr/m/n/9 (+20) ) \OMS/lmsy/m/n/9 ^^@
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--143
+\OT1/lmr/m/n/9 (+20) Lin-ear Re-gres-sion:
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 128--143
 
  []
 
-[1
+LaTeX Font Info:    Trying to load font information for OT1+pmhg on input line 143.
+(c:/Program Files/texlive/2023/texmf-dist/tex/latex/archaic/ot1pmhg.fd
+File: ot1pmhg.fd 2000/08/19 v1.0 PM Hieroglyphic font definitions
+)
+Package microtype Info: Fixing zero \fontdimen 6 for font `OT1/pmhg/m/n/10'
+(microtype)             (new value: 10.0pt) on input line 143.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `pmhg' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+Package microtype Info: Character `1' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `.' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `,' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `:' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `;' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `!' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `@' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `~ (= ~)' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `%' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `*' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `(' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `)' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `-' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `AE ' is missing
+(microtype)             in font `OT1/pmhg/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Trying to load font information for U+futs on input line 143.
+ (c:/Program Files/texlive/2023/texmf-dist/tex/latex/fourier/ufuts.fd
+File: ufuts.fd 2021/11/24 Fontinst v1.933 font definitions for U/futs.
+) [1{c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-{c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] 
+{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [2] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./CSC311.aux)
  ***********
@@ -1041,18 +1321,18 @@ Package rerunfilecheck Info: File `CSC311.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 37397 strings out of 474272
- 706531 string characters out of 5744472
- 2003533 words of memory out of 5000000
- 58863 multiletter control sequences out of 15000+600000
- 592924 words of font info for 124 fonts, out of 8000000 for 9000
+ 37442 strings out of 474272
+ 707443 string characters out of 5744472
+ 2002533 words of memory out of 5000000
+ 58922 multiletter control sequences out of 15000+600000
+ 595249 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 118i,16n,121p,2841b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on CSC311.pdf (1 page, 206142 bytes).
+ 118i,16n,121p,2841b,592s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-orns.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/archaic/pmhg.pfb>
+Output written on CSC311.pdf (2 pages, 248879 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
- 2 named destinations out of 1000 (max. 500000)
- 16493 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 135 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
+ 3 named destinations out of 1000 (max. 500000)
+ 19053 words of extra memory for PDF output out of 20736 (max. 10000000)
 
