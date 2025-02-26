@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  6 FEB 2025 08:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  19 FEB 2025 02:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,8 +7,8 @@ entering extended mode
 (c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC311/CheatSheet/CSC311-Cheat-Sheet/CSC311.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
-(./LatexTemplate/hw.cls
-Document Class: LatexTemplate/hw 2024/03/27 LatexTemplate/hw
+(./CheatSheet/hw.cls
+Document Class: CheatSheet/hw 2024/03/27 CheatSheet/hw
 (c:/Program Files/texlive/2023/texmf-dist/tex/latex/silence/silence.sty
 Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error messages
 \sl@Save=\count186
@@ -483,8 +483,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip64
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 212.
-Package hyperref Info: Option `colorlinks' set `true' on input line 212.
+Package hyperref Info: Option `colorlinks' set `true' on input line 216.
+Package hyperref Info: Option `colorlinks' set `true' on input line 216.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \ttl@box=\box106
@@ -713,7 +713,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box118
 \@float@everytoks=\toks56
 \@floatcapt=\box119
-) (./LatexTemplate/clsfiles/shortcuts.sty
+) (./CheatSheet/clsfiles/shortcuts.sty
 Package: shortcuts 
 LaTeX Info: Redefining \cal on input line 128.
 LaTeX Info: Redefining \frak on input line 130.
@@ -802,7 +802,7 @@ File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.1.0'
 )) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.1.0'
-)) (./LatexTemplate/clsfiles/tcbthm.sty
+)) (./CheatSheet/clsfiles/tcbthm.sty
 Package: tcbthm 
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/starfont/starfont.sty
 Package: starfont 2010/09/29 v1.2 Anthony Owen's StarFont
@@ -867,15 +867,15 @@ LaTeX Font Info:    ... okay on input line 3.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(2.84526pt, 839.35632pt, 2.84526pt)
-* v-part:(T,H,B)=(2.84526pt, 591.81735pt, 2.84526pt)
+* h-part:(L,W,R)=(28.45274pt, 788.14136pt, 28.45274pt)
+* v-part:(T,H,B)=(28.45274pt, 540.60239pt, 28.45274pt)
 * \paperwidth=845.04684pt
 * \paperheight=597.50787pt
-* \textwidth=839.35632pt
-* \textheight=591.81735pt
-* \oddsidemargin=-69.42473pt
-* \evensidemargin=-69.42473pt
-* \topmargin=-106.42473pt
+* \textwidth=788.14136pt
+* \textheight=540.60239pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-80.81725pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -937,50 +937,58 @@ Package hyperref Info: Link coloring ON on input line 3.
 \@outlinefile=\write4
 \openout4 = `CSC311.out'.
 
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 10.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 6.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 10.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 6.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 10.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 6.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 10.
+(Font)              <6> on input line 6.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 10.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 10.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
+(Font)              <5> on input line 6.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Program Files/texlive/2023/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 10.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 6.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 10.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 6.
  (c:/Program Files/texlive/2023/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-Underfull \hbox (badness 7522) in paragraph at lines 128--143
-\OT1/lmr/m/n/9 (+20) the en-tropy $\OML/lmm/m/it/9 H\OT1/lmr/m/n/9 (+20) (\OML/lmm/m/it/9 Y\OT1/lmr/m/n/9 (+20) )$ with prob-a-bil-
+Underfull \hbox (badness 10000) in paragraph at lines 124--139
+\OT1/lmr/bx/n/6 (+20) IG of De-ci-sion Tree\OT1/lmr/m/n/6 (+20) : First cal-cu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--143
+Underfull \hbox (badness 10000) in paragraph at lines 124--139
+\OT1/lmr/m/n/6 (+20) late the en-tropy $\OML/lmm/m/it/6 H\OT1/lmr/m/n/6 (+20) (\OML/lmm/m/it/6 Y\OT1/lmr/m/n/6 (+20) )$ with prob-a-bil-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--139
+\OT1/lmr/m/n/6 (+20) for $\OML/lmm/m/it/6 H\OT1/lmr/m/n/6 (+20) (\OML/lmm/m/it/6 Y\OMS/lmsy/m/n/6 j[]\OT1/lmr/m/n/6 (+20) )\OML/lmm/m/it/6 ; H\OT1/lmr/m/n/6 (+20) (\OML/lmm/m/it/6 Y\OMS/lmsy/m/n/6 j[]\OT1/lmr/m/n/6 (+20) )$, then $\OML/lmm/m/it/6 IG \OT1/lmr/m/n/6 (+20) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--139
 
  []
 
@@ -995,18 +1003,18 @@ Package rerunfilecheck Info: File `CSC311.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 36475 strings out of 474272
- 690687 string characters out of 5744472
- 2002533 words of memory out of 5000000
- 58008 multiletter control sequences out of 15000+600000
- 591737 words of font info for 112 fonts, out of 8000000 for 9000
+ 36445 strings out of 474272
+ 690270 string characters out of 5744472
+ 2000533 words of memory out of 5000000
+ 57992 multiletter control sequences out of 15000+600000
+ 583899 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  118i,16n,121p,2841b,587s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on CSC311.pdf (1 page, 206017 bytes).
+<c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on CSC311.pdf (1 page, 174632 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
- 16493 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 12397 words of extra memory for PDF output out of 14400 (max. 10000000)
 

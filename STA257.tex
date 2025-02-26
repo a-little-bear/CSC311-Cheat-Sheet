@@ -1,0 +1,107 @@
+\documentclass[12pt]{LatexTemplate/hw}
+
+\renewcommand{\Pr}{\operatorname{P}}
+\newcommand{\E}{\operatorname{E}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Sd}{\operatorname{Sd}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Corr}{\operatorname{Corr}}
+
+\begin{document}
+Sample space $S$ := set of all possible outcomes
+
+Event $A$ := Measurable subset of $S$
+
+$0\le \Pr(A)\le 1$\\
+$\Pr(S)=1, \Pr(\nil)=0$\\
+For countable $(A_n)$, $\Pr(\cup A_n)=\sum \Pr(A_n)$\\
+$\Pr(A^c)=1-\Pr(A)$\\
+$\Pr(A)=\Pr(A\cap B)+\Pr(A\cap B^c)$\\
+$A\subseteq B\implies \Pr(A)\le \Pr(B)$\\
+If countable $(A_n)$ partition $S$, \\
+$\Pr(B)=\sum \Pr(A_i\cap B)=\sum \Pr(A_i)\Pr(B|A_i)$\\
+$\Pr(A\cup B)=\Pr(A)+\Pr(B)-\Pr(A\cap B)$\\
+$\Pr(\cup A_n)\le \sum \Pr(A_n)$\\
+$\Pr(A | B)=\frac{\Pr(A\cap B)}{\Pr(B)}$\\
+$\Pr(A|B)=\frac{\Pr(A)}{\Pr(B)}\Pr(B|A)$\\
+For countable $(A_n)$, independent := For any subcollection, $\Pr(\cap A_n)=\prod \Pr(A_n)$\\
+Define $(A_n)\nearrow A:=\cup A_n=A, A_i\subseteq A_{i+1}$\\
+Continuity: If $(A_n)\nearrow A$, then $\ds\lim_{n\to\infty}\Pr(A_n)=\Pr(A)$
+
+Random variable := ``any'' function from $S$ to $\R$
+
+Distribution of random variable is the collection of all probabilities of events in $\R$
+
+Discrete random variable $X$ := $\sum_{x\in\R} \Pr(X=x)=1$\\
+Probability function $p_X(x):=\Pr(X=x)$\\
+Discrete Law of Total Pr.: $\Pr(B)=\sum_i p_X(x_i)\Pr(B|X=x_i)$\\
+Continuous random variable $X$ := $\Pr(X=x)=0$ for all $x$\\
+Density function $f:\R\to\R$ := $f\ge0$ and $\int_{-\infty}^\infty f(x)dx=1$\\
+Absolute continuous := Has density $f$ s.t. $\Pr(a\le X\le b)=\int_a^b f(x)dx$\\
+Cumulative distribution function (cdf) := $F_X(x)=\Pr(X\le x)$\\
+$\ds\lim_{x\to-\infty} F_X(x)=0, \ds\lim_{x\to\infty} F_X(x)=1, F_X$ incr., $F_X(x)\in[0,1]$\\
+Discrete: $F_X(x)=\sum_{t\le x} p_X(t)$\\
+Continuous: $F_X(x)=\int_{-\infty}^x f(t)dt$\\
+$F$ always right continuous but left continuous depending on $f(x)$\\
+$F_X(x)=\int_{-\infty}^x f(t)\D t$, $F_X'(x)=f(x)$
+
+If $Y\sim N(-8,4)$, then $\Pr(Y\le -5)=\Pr((Y+8)/2\le (-5+8)/2)=\Ph(\frac{3}{2})$
+
+Discrete: If $Y(s)=h(X(s))$, then $P(Y=y)=P(h(X)=y)=\sum_{x:h(x)=y} P(X=x)$\\
+Absolute Continuous: If $Y(s)=h(X(s))$ and $X$ has density $f_X$, then if $h$ differentiable and stric. monot., with inverse, then $Y$ also abs. conti., and $f_Y(y)=f_X(h^{-1}(y)) / |h'(h^{-1}(y))|$
+
+Joint cdf := $F_{X,Y}(x,y)=\Pr(X\le x, Y\le y)$\\
+$\Pr(a\le X\le b, c\le Y\le d)=F_{X,Y}(b,d)-F_{X,Y}(a,d)-F_{X,Y}(b,c)+F_{X,Y}(a,c)$\\
+Joint probability (discrete) := $p_{X,Y}(x,y)=\Pr(X=x, Y=y)$\\
+Marginal distribution of $X$ := $p_X(x)=\sum_y p_{X,Y}(x,y)$\\
+Joint absolutely continuous := exists $f_{X,Y}$ s.t. $\Pr(a\le X\le b, c\le Y\le d)=\int_a^b\int_c^d f_{X,Y}(x,y)dydx$\\
+Marginal: $\Pr(a\le X\le b)=\int_a^b\int_{-\infty}^\infty f_{X,Y}(x,y)dydx$\\
+Conditional distribution: $p_{X|Y}(x|y)=\frac{\Pr(X=x|Y=y)}{\Pr(Y=y)}$\\
+Conditional density: $f_{X|Y}(x|y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}$
+
+Independent: For any events $A,B$, $\Pr(A\cap B)=\Pr(A)\Pr(B)$\\
+$F_{X,Y}(x,y)=F_X(x)F_Y(y)$\\
+Discrete: $p_{X,Y}(x,y)=p_X(x)p_Y(y)$
+
+Expected value := $\E(X)=\sum_x xp_X(x)$ or $\int_{-\infty}^\infty xf_X(x)dx$\\
+$\E(aX=bY)=a\E(X)+b\E(Y)$\\
+$\Pr(X\le Y)=1\implies \E(X)\le \E(Y)$\\
+For independent $X,Y$, $\E(XY)=\E(X)\E(Y)=\int_{-\infty}^\infty\int_{-\infty}^\infty xyf_{X,Y}(x,y)dxdy$
+
+
+
+
+Let $\mu_X$ be $\E(X)$\\
+Variance := $\Var(X)=\E((X-\mu_X)^2)=\E(X^2)-2\mu_X\E(X)+\mu_X^2=\E(X^2)-\E(X)^2$\\
+Standard Deviation := $\Sd(X)=\sqrt{\Var(X)}$\\
+
+Covariance := $\Cov(X,Y)=\E((X-\mu_X)(Y-\mu_Y))=\E(XY)-\E(X)\E(Y)$\\
+If $\Cov(X,Y)>0$, then $X,Y$ positively correlated\\
+If $\Cov(X,Y)<0$, then $X,Y$ negatively correlated\\
+Correlation := $\Corr(X,Y)=\frac{\Cov(X,Y)}{\Sd(X)\Sd(Y)}$\\
+Correlation is only defined for non-constant functions
+
+$(X_n)$ converges in probability to $Y$ := $\forall \epsilon>0, \Pr(|X_n-Y|>\epsilon)\to 0$\\
+$(X_n)$ converges almost surely (a.s.) to $Y$ := $\Pr(X_n\to Y)=1$
+
+SLLN: For any sequence $(X_n)$ iid each with $\mu$. If $M_n=\frac{1}{n}\sum_{i=1}^n X_i$, then $M_n\to \mu$ a.s.\\
+
+CLT: Probabilities of $Z_n$ converge to those of $Z\sim N(0,1)$, where $Z_n=\frac{M_n-\mu}{\sigma/\sqrt{n}}$ and $M_n$ is the sample mean of $n$ iid $X_i$ with $\mu$ and $\sigma^2$\\
+$Z_n=(1/n S_n - \mu)/(\sqrt{\sigma^2/n})$ 
+
+Now, we know $\lim_{n\to\infty} \Pr(\frac{1/n S_n - \mu}{\sqrt{\sigma^2/n}}\le z)=\Phi(z)$
+
+
+
+\section{Distributions}
+
+Geometric sum: $\sum_{k=0}^n ar^k=a\frac{1-r^{n+1}}{1-r}$
+
+Geometric distribution: $Z$ is the number of misses before the first score
+
+\fig[width=\textwidth]{img/2025-02-19-03-39-22.png}
+
+
+
+
+\end{document}

@@ -2,29 +2,26 @@
 \NeedsTeXFormat{LaTeX2e}
 
 \RequirePackage{xifthen}%
-\RequirePackage[hidelinks,colorlinks]{hyperref}
-\setlength\parindent{0pt}
-\usetikzlibrary{positioning}
 
 % Counter for Questions
 \newcounter{question}
 
 % Question
 \renewcommand{\question}[2]{%
-    \stepcounter{question}
-    \vspace{.25in} \textbf{Q\arabic{question}
-        \ifthenelse{\isempty{#1}}%
-        {}% if no points
-        {[#1 Points]\ }% if #1 is not empty
-        #2}\vspace{0.10in}
+	\stepcounter{question}
+	\vspace{.25in} \textbf{Q\arabic{question} 
+		\ifthenelse{\isempty{#1}}%
+		{}% if no points
+		{[#1 Points]\ }% if #1 is not empty
+		#2}\vspace{0.10in}
 }
 
 % Subquestion
 \newcommand{\qpart}[2]{%
-    \vspace{.10in} \textbf{(#1)}
-    \ifthenelse{\isempty{#2}}%
-    {}% if no points
-    {[#2 Points]}% if #1 is not empty
+	\vspace{.10in} \textbf{(#1)}
+	\ifthenelse{\isempty{#2}}%
+	{}% if no points
+	{[#2 Points]}% if #1 is not empty
 }
 
 \newcommand{\references}{\vspace{.25in}\textbf{References}\vspace{.10in}}
