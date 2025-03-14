@@ -2,10 +2,68 @@
 
 \begin{document}
 
-\begin{multicols}{5}
-1
-\end{multicols}
+\begin{multicols*}{5}
+\tbf{Divide and Conquer:} Divide into disjoint subproblems, then combine\\
+- Merge Sort: in $O(n\log n)$\\
+- Count inversion: by augmenting Merge Sort\\
+- Closest Pair: by merging center with delta and 11 cloest y points\\
+- Karatsuba: By replacing $x_1y_2+x_2y_1$ with $(x_1+x_2)(y_1+y_2)-x_1y_1-x_2y_2$; evaluate polynomial at different points\\
+- Strassen: Karatsuba for matrix multiplication
 
+\tbf{Greedy:} Local optimal yields global optimal without memory; Prove optimality by contradiction or induction\\
+- Interval Scheduling: Earliest finish time (replace non EFT by EFT)\\
+- Interval Partitioning: Earliest start time (add one if not capable, argue optimal by depth is precisely the solution)\\ 
+- Minimizing Lateness: Earliest deadline (argue removing inversion)\\
+- Huffman (Lossless compression): Build prefix free tree by merging two smallest freqs (argue combining 2 smallest freqs remains optimal reversely)\\ 
 
+\tbf{Dynamic Programming:} Greedy with memory; Optimal substructure and overlapping subproblems\\
+Let $\operatorname{OPT}(i)$ be the optimal solution for the first $i$ items\\
+Let $S(i)$ denote solution for the first $i$ items\\
+Bellman Equation: $\operatorname{OPT}(i)=$ Base Case; Recursive Case\\
+Solution: $S(i)=$ emptyset for Base Case; $S(i-1)$ or augmenting depending on Bellman Equation\\
+Top-down: When not all subproblems are needed\\
+Bottom-up: When all subproblems are needed; Prevents recursive call overhead; free memory early\\
+- Weighted Interval Scheduling: Sort by finish time;\\
+- Knapsack: Any sort; 2D array with weight and items; $O(nW)$\\
+- Single Source Shortest Path: 2D array with ending node and number of edges; $O(n^3)$\\
+- Chain Matrix Product: 2D array with starting and ending matrix; $O(n^3)$\\
+- Edit Distance: 2D array with position of matching; $O(nm)$ time and space\\
+- Travelling Salesman: 2D array with remaining node set and starting node; $O(n^2 2^n)$ with space $O(n 2^n)$
 
+\tbf{Network Flow:} Max flow = Min cut; Augmenting path; Residual graph; Ford-Fulkerson\\
+Source: $s$; Sink: $t$; Non-negative capacities $c$; directed graph\\
+s-t flow is $f: E\to\R_{\geq 0}$; $o\le f(e)\le c(e)$; sum of incoming flow equals outgoing flow, $f^{in}(v)=f^{out}(v)$\\
+s-t cut $(A,B)$ is: $s\in A, t\in B$, $A$ and $B$ partition vertices
+
+- Ford-Fulkerson: While residual has path. Let bottlenceck($P$) be the minimum capacity of edges in path $P$ of residual graph, Augment flow $f$ by sending bottleneck($P$) flow along path $P$; $O((m+n)C)$;\\
+- Edmons-Karp: Ford-Fulkerson with BFS to find shortest path; $O(nm^2)$
+
+$v(f):=f^{in}(t)=f^{out}(s)$\\
+$v(f)=f^{out}(A)-f^{in}(A)$ for all $A$ (prove by summing each a in A, cancel in and out within A)\\
+$Cap(A,B)$: Sum of capacities of edges from $A$ to $B$; $v(f)\le Cap(A,B)$ for any st-cut $(A,B)$ by above\\
+- Max Flow Min Cut: $v(f)=Cap(A,B)$ for some st-cut $(A,B)$ (Prove by letting $A$ be reachable nodes from $s$ and $B$ be remaining for final $G_f$ graph of FF, then outgoing edges are saturated (equal to capacity), and entering edges have zero flow otherwise in $A$, so $v(f)=f^{out}(A)=Cap(A,B)$)
+
+Integrality Theorem: If all capacities are integers, then there exists an integral max flow, same for variants.\\
+For application of network flow, first show 1-1 correspondence between feasible solution and flow by double implication, then
+
+- Bipartite Matching: For bipartite graph, connect $s$ to left, $t$ to right, all edges have capacity 1; Max flow is max matching; $O(nm)$ (flow with value $k$ corresopnds to a matching with cardinality $k$)\\
+- Hall's Marriage Theorem: Bipartite graph $G$ has perfect matching iff neighbor $|N(S)|\ge|S|$ for each $S\subseteq U$ (edges with s or t have capacity 1, otherwise infinity, then cut must isolate s or t)\\
+- Edge-Disjiont Paths (Find max num of edge-disjiont paths):(paths are flows by $f(e)=1$ if edge $e$ is in a path otherwise 0, then with capacities 1, exists unique flow; reversely construct paths by extracting edges from flow); \\ 
+- Menger's Theorem: The maximum number of edge-disjoint paths from $s$ to $t$ is equal to the minimum number of edges (resp. vertices) whose removal disconnects $s$ and $t$\\
+- Multiple sources and sinks: Use master source and sink to connect the sources and sinks (with capacities infinity)\\
+- Circulation: Negative supply node $v$ with value $k$ sends $d(v)=k$ more flow than it receives; positive demand node $v$ with value $k$ receives $d(v)=k$ more flow than it sends; zero node is transshipment node; Connect supply nodes with $s$, demand nodes with $t$, then circulation exists iff max flow value equals the sum of supplies.\\
+- Circulation with Lower Bounds: For lower bound $k$ between $u$ and $v$, add $k$ to $d(u)$ and $-k$ to $d(v)$, subtract $k$ from upper bound\\
+- Survey Design: Connect $s$ to each customer with bounds $[c_i,c_i']$, connect each customer to each survey with $[0,1]$, connect each survey to $t$ with bounds $[p_j,p_j']$, edge from $s$ to $t$ with $[0,\infty]$ (so that all nodes $d(v)=0$)\\
+- Image Segmentation: Find min cut to segment image into two parts\\
+
+\end{multicols*}
+
+\np 
+\tbf{Master Theorem: }
+(O, Theta, Omega)
+\fig{img/2025-02-25-22-12-12.png}
+
+\tbf{Residual Graph:}
+\fig[width=0.3\textwidth]{img/2025-02-26-08-20-03.png}
+\fig[width=0.3\textwidth]{img/2025-02-26-08-14-12.png}
 \end{document}

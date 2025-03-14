@@ -136,8 +136,194 @@ Linear Regression: Square error loss function, with average loss cost function\\
 Logistic Regression: Sigmoid function, with cross entropy loss function\\
 Decision Tree: Greedy method, with information gain loss function\\
 kNN: No training, with Euclidean distance for lower dimension $D$\\
-
-
 \end{multicols*}
+
+\np 
+\begin{multicols*}{5}
+\tbf{Multi-class Classification}\\
+One-hot vector $t\in\R^K$ has 1 at the index of the correct class, 0 elsewhere, for $K$ targets\\
+For $y\in\R^K, \sum_{k=1}^K y_k=1$\\
+For input $x\in\R^D$, do linear prediction for each $z_i$, $z=Wx+b$, then $y_k=\operatorname{softmax}(z)_k=\frac{e^{z_k}}{\sum_{j=1}^K e^{z_j}}$, their sum is 1, each $y_k\in[0,1]$
+\begin{align*}
+    z&= Wx+b\\
+    y&=\operatorname{softmax}(z)=\frac{e^z}{\textstyle\sum_{j=1}^K e^{z_j}}\\
+    \cal{L}_{\T{CE}}(y,t)&=-\textstyle\sum_{k=1}^K t_k\log(y_k)=-t^T\log(y)\\
+    \PP{\cal{L}_{\T{CE}}}{w_k}&=\PP{\cal{L}_{\T{CE}}}{z_k}\PP{z_k}{w_k}\\
+    &=(y_k-t_k)x\\
+    \cal{E}(W,b)&=\frac1N\textstyle\sum_{i=1}^N\cal{L}_{\T{CE}}(y^{(i)},t^{(i)})\\
+    w_k&\gets w_k-\frac{\al}{N}\textstyle\sum_{i=1}^N(y_k^{(i)}-t_k^{(i)})x^{(i)}
+\end{align*}
+\rule{\linewidth}{0.4pt}\\
+Linear models can only separate data into 2 half-planes, does not work with XOR
+\rule{\linewidth}{0.4pt}\\
+\tbf{Neural Network}\\
+Multi-Class: $x_1,...,x_D$ as inputs, $w_{ij}$ connecting $x_j$ to $y_i$ as connection\\
+$b_1,...,b_K$ as bias, $f=\operatorname{softmax}$, $y=\operatorname{softmax}(Wx+b)$ as output\\
+Multi-Layer: Input layer, hidden layers, output layer (input layer doesn't count in $n$-layer n.n.)\\
+Input size: num of features, hidden size: hyperpar., output size: num of classes\\
+One layer:
+\vspace{-5pt}
+\indenv{
+    $h_j=f(\sum_{i=1}^D w_{j,i}^{(1)}x_i+b_j^{(1)})$\\
+    $h=f(W^{(1)}x+b^{(1)})$\\
+    $z_k=\sum_{j=1}^K w_{k,j}^{(2)}h_j+b_k^{(2)}$\\
+    $z=W^{(2)}h+b^{(2)}$\\
+    $y=\operatorname{softmax}(z)$
+}
+\vspace{-5pt}
+Multiple layer:
+\vspace{-5pt}
+\indenv{
+    $h^{(1)}=f(W^{(1)}x+b^{(1)})$\\
+    $h^{(\ell)}=f(W^{(\ell)}h^{(\ell-1)}+b^{(\ell)})$\\
+    $z=W^{(L)}h^{(L-1)}+b^{(L)}$\\
+    $y=\operatorname{softmax}(z)$
+}
+\vspace{-5pt}
+Common $f$: Sigmoid, Tanh, ReLU\\
+Sigmoid: problematic due to gradient signal at extreme inputs, pos only\\
+Tanh: Sigmoid but centered at 0, pos and neg\\
+ReLU: $f(x)=\max(0,x)$, often used, pos, problematic if bias too large and neg (activation always 0)\\
+N.N.: learning features s.t. becomes lin. sep. after $L-1$ layers; final layer as linear classifier\\
+Expressive power: Deep linear networks with no activ. func. have same expr. power as linear regression\\
+is universal approximator with nonlinear activ. func., e.g. single layer with $2^D$ hidden units\\
+\tbf{Backpropagation}\\
+For $\cal{L}=\frac12(\si(wx+b)-t)^2$,\\
+$\PP{\cal{L}}{w}=(\si(wx+b)-t)\si'(wx+b)x$ and\\
+$\PP{\cal{L}}{b}=(\si(wx+b)-t)\si'(wx+b)$\\
+So, more efficiently $\PP{\cal{L}}{y}=y-t, \PP{\cal{L}}{z}=\PP{\cal{L}}{y}\si'(z)$\\
+$\PP{\cal{L}}{w}=\PP{\cal{L}}{z}x, \PP{\cal{L}}{b}=\PP{\cal{L}}{z}$\\
+Let $\bar{y}$ denote $\DD{\cal{L}}{y}$ called error signal\\
+Computing predictions: $z=wx+b, y=\si(z), \cal{L}=\frac12(y-t)^2$\\
+Computing gradients: $\bar{y}=y-t, \bar{z}=\bar{y}\si'(z), \bar{w}=\bar{z}x, \bar{b}=\bar{z}$\\
+Multiclass Logistic Regression with 2 features and 2 classes (computation graph): \\
+$x_1,x_2\to z_1,z_2\to y_1,y_2\to \cal{L}$, $w_{11}, b_1, w_{12}\to z_1; w_{21}, b_2, w_{22}\to z_2; t_1,t_2\to\cal{L}$\\
+$\DD{f}{t}=\PP{f}{x}\DD{x}{t}+\PP{f}{y}\DD{y}{t}$\\
+$\bar{t}=\bar{x}\DD{x}{t}+\bar{y}\DD{y}{t}$\\
+E.g. $\PP{\cal{L}}{b_1^{(1)}}=(\PP{\cal{L}}{y_1}\PP{y_1}{h_1}+\PP{\cal{L}}{y_2}\PP{y_2}{h_1})\DD{h_1}{z_1}\PP{z_1}{b_1^{(1)}}$\\
+Forward pass: $z=W^{(1)}x+b^{(1)}, h=\si(z), y=W^{(2)}h+b^{(2)}, \cal{L}=\frac12\sum_k (y_k-t_k)^2=\frac12\norm{y-t}^2$\\
+Backward pass: $\bar{\cal{L}}=1, \bar{y}=\bar{\cal{L}}(y-t), \bar{W}^{(2)}=\bar{y}h^T, \bar{b}^{(2)}=\bar{y}, \bar{h}=W^{(2)T}\bar{y}, \bar{z}=\bar{h}\circ\si'(z)$\\
+If $\bar{z_j}=\sum_k \bar{y_k}\PP{y_k}{z_j}$, then $\bar{z}=\PP{y}{z}^T\bar{y}$, with Jacobian matrix $\PP{y}{z}$\\
+For softmax, $\PP{y_i}{z_j}=\begin{cases}
+    y_i(1-y_j) & \T{if } i=j\\
+    -y_i y_j & \T{if } i\ne j
+\end{cases}$\\
+\rule{\linewidth}{0.4pt}
+\tbf{Bias Variance Decomposition}\\
+Decompose generalization error into: variance, bias, and irreducible error\\
+Variance: Error from sensitivity to small fluctuations in the training data. Low Variance: less spread out. High Variance = overfitting\\
+Bias: Error from poor assumptions in the model. Low Bias: more towards the center. High Bias = underfitting\\
+Irreducible Error (Bayes Error): Error due to noise in the problem\\
+Treat hypothesis $y$ as a random variable.\\
+Lemma. Best prediction is $y_{*}=\mathbb{E}[t|x]$.\\
+Decompose $\mathbb{E}[(y-t)^2|x]$ ignoring $|x$:
+\begin{align*}
+    \mathbb{E}[(y-t)^2]&=\mathbb{E}[(y-y_*)^2]+\operatorname{Var}(t)\\
+    &=\mbb{E}[y_*-y]^2 + \operatorname{Var}(y-y_*)+\operatorname{Var}(t)
+\end{align*}
+I.e., expected prediction error = bias (perform on average), variance (amount of variability in predictions), and Bayes error (irreducible error from data)\\
+\rule{\linewidth}{0.4pt}
+\tbf{Ensembling methods}: combine multiple models performs better than individual models\\
+begging (bootstrap aggregation): train independently on different subsets of data, then average the predictions\\
+Bayes error: unchanged; Bias: unchanged; Variance: reduced by factor $1/m$\\
+Take $\cal{D}$ with $n$ examples; Generate $m$ new datasets, each sample $n$ training examples from $\cal{D}$ with replacement; Averaging the predictions\\
+$y_{\T{bagged}}=\mathbb{I}(\sum_{i=1}^m \frac{y_i}{m}>0.5)$\\
+Datasets not indep., not precisely $1/m$ reduc.\\
+Random forests = bagged decision trees, but choose a random set of $d$ input features for each node of decision tree\\
+Decreases correlation between classifiers by adding randomness 
+\rule{\linewidth}{0.4pt}
+\tbf{Probabilistic Classifiers}\\
+For binary classification, let $Y$ be the hypothesis, $Y\sim\operatorname{Bernoulli}(\th)$ for unknown $\th\in[0,1]$\\
+$p(y_i|\th)=\th^{y_i}(1-\th)^{1-y_i}$\\
+If $y_i$ are i.i.d. Bernoullis, then $p(y_1,...,y_N|\th)=\textstyle\prod_{i=1}^N p(y_i|\th)=\textstyle\prod_{i=1}^N \th^{y_i}(1-\th)^{1-y_i}$\\
+We may find $\th$ by given $y_i$ and maximizing $p(y_1,...,y_N|\th)$ \\
+Likelihood function $L(\th)=p(y_1,...,y_N|\th)$\\
+\tbf{maximum likelihood criterion}: \\
+pick $\hat{\th}_{ML}=\arg\max_{\th\in[0,1]} L(\th)$\\
+Work with log-likelihoods in practice: $\ell(\th)=\log L(\th)=\sum_{i=1}^N y_i\log\th+(1-y_i)\log(1-\th)$\\
+Let $N_H=\sum_i y_i, N_T=N-\sum_i y_i$, then set $\DD{\ell}{\th}=\frac{N_H}{\th}-\frac{N_T}{1-\th}=0$\\
+Obtain $\hat{\th}_{ML}=\frac{N_H}{N_H+N_T}=\frac{N_H}{N}$\\
+\tbf{maximum likelihood estimation}: define a model that assigns a probability to a dataset, maximize the likelihood (minimize cross-entropy)\\
+$\log p(y_i,x_i;\th)=(1-x_i)(y_i\log \th_0+(1-y_i)\log(1-\th_0))+x_i(y_i\log \th_1+(1-y_i)\log(1-\th_1))+(x_i\log \pi + (1-x_i)\log(1-\pi))$\\
+$\log p(\cal{D};\th)=\sum_{i=1}^N \log p(y_i,x_i;\th)$\\
+Decompose summation into 3 parts, take derivative of each part, set derivative to zero, solve for $\th_0,\th_1,\pi$\\
+E.g.: $p(\cal{D}|\th)$
+\begin{align*}
+    &=\textstyle\prod_{i=1}^N p(x_1^{(i)}, x_2^{(i)}, y^{(i)};\th)\\
+    &=\textstyle\prod_{i=1}^N p(y^{(i)}|x_1^{(i)},x_2^{(i)})p(x_1^{(i)},x_2^{(i)})\\
+    &=\textstyle\prod_{i=1}^N (\th_{x_1^{(i)},x_2^{(i)}})^{y^{(i)}}(1-\th_{x_1^{(i)},x_2^{(i)}})^{1-y^{(i)}}\\
+    &\quad\quad\quad\quad\pi_{x_1^{(i)},x_2^{(i)}}
+\end{align*}
+\begin{align*}
+\alt{Then take log, decompose into 3 sums, for $\th_{0,0}$, consider the first 2 sums only, set derivative to zero, }
+\PP{\ell}{\th_{0,0}}&=\PP{}{\th_{0,0}}\sum\\
+&\mathbb{I}[x_1^{(i)}=0,x_2^{(i)}=0, y^{(i)}=1]\log\th_{0,0}\\
++\mathbb{I}[x_1^{(i)}&=0,x_2^{(i)}=0, y^{(i)}=0]\log(1-\th_{0,0})\\
+&=\frac{N_{0,0;p}}{\th_{0,0}}-\frac{N_{0,0;N}}{1-\th_{0,0}}\\
+\hat{\th_{0,0}}&=\frac{N_{0,0;p}}{N_{0,0}}\\
+\ell(\pi)&=N_{0,0}\log\pi_{0,0}+...\\
+&+N_{1,1}\log(1-...-\pi_{1,0})+C_0\\
+\PP{\ell}{\pi_{0,0}}&=0=\frac{N_{0,0}}{\pi_{0,0}}-\frac{N_{1,1}}{1-\pi_{0,0}-\pi_{0,1}-\pi_{1,0}}\\
+N_{0,0}\pi_{1,1}&=N_{1,1}\pi_{0,0}, N_{0,1}\pi_{1,1}=N_{1,1}\pi_{0,1}\\
+N_{1,0}\pi_{1,1}&=N_{1,1}\pi_{1,0}
+\end{align*}
+\rule{\linewidth}{0.4pt}
+Discriminative classifier: learns a mapping from inputs to outputs, e.g. logistic regression, neural networks; model $p(c|x)$ directly (estimate parameters directly from labelled examples)\\
+Generative model: Model $p(x,c), p(x|c)$, i.e. distribution of inputs characteristic of class (Bayes classifier)\\
+Bayes rule: $p(y|x)=\frac{p(y)}{p(x)}p(x|y)$
+
+E.g. sample $c$ from Bernuolli $p(c)$; sample $x_1,...,x_D$ from $p(x|c)$ ($c=1,c=0$)\\
+Learn via MLE\\
+Discriminative: Given $x$, predict $p(c|x)$\\
+Generative: Model $p(x,c)$, given $p(c)$ can compute $p(x|c)$
+Binary Bag-of-words Features: $x_i=1$ if word $i$ appears in the document, 0 otherwise
+
+Inference: \begin{align*}
+    p(c|x) &= \frac{p(x,c)}{p(x)} = \frac{p(x|c) p(c)}{p(x)}\\
+    \T{Posterior} &= \frac{\T{Class likelihood} \times \T{Class Prior}}{\T{Evidence}}
+\end{align*}
+If we want to compare $p(c=0|x)$ with $p(c=1|x)$, it suffices to compare $p(x|c=0)p(c=0)$ with $p(x|c=1)p(c=1)$
+
+Evidence: \begin{align*}
+    p(x) &=\textstyle\sum_c p(x|c)p(c)\\
+    &= p(x|c=1)p(c=1)+p(x|c=0)p(c=0)
+\end{align*}
+
+$p(c,x_1,...,x_D)$ is enough to obtain $p(c)$ and $p(x|c)$ (using $2^{D+1}-1$ entries)
+\rule{\linewidth}{0.4pt}
+\tbf{Naive Bayes} classifier assumes $x_i$ are conditionally independent given $c$\\
+$p(x_1,...x_D|c)=\prod_{i=1}^D p(x_i|c)$\\
+$p(c,x_1,...,x_D)=p(c)\prod_{i=1}^D p(x_i|c)$\\
+$P(c=1)=\pi, P(x_j=1|c=i)=\th_{ji}$\\
+A directed graphical model (Bayesian network): joint distr. factorizes as a product of condi. distr. for each variable given parent
+\begin{align*}
+    \ell(\th) &=\textstyle\sum_{i=1}^N \log p(c^{(i)},x^{(i)})\\
+    &=\textstyle\sum_{i=1}^N \log (p(x^{i}|c^{(i)})p(c^{(i)}))\\
+    &=\textstyle\sum_{i=1}^N \log (p(c^{(i)})+\textstyle\prod_{j=1}^D p(x_j^{(i)}|c^{(i)}))\\
+    &=\textstyle\sum_{i=1}^N \log p(c^{(i)}) \\
+    &+\textstyle\sum_{j=1}^D \textstyle\sum_{i=1}^N \log p(x_j^{(i)}|c^{(i)})
+\end{align*}
+where the first sum is Bernoulli log-likelihood of labels ($p(c)=\pi^c(1-\pi)^{1-c}, \hat{\pi}=\T{pos}/\T{tot}$, $p(c)$ Ber.), second inner of feature $x_j$ (decompose to learn each $\th_{jc}$ separately, $p(x_j|c)$ Bern., $\hat{\th_{jc}}=\T{num of word j in pos}/\T{pos num}$)
+\begin{align*}
+    &\th_{jc}=p(x_j^{(i)}=1|c)=\th_{jc}^{x_j^{(i)}}(1-\th_{jc})^{1-x_j^{(i)}}\\
+    &\textstyle\sum_{i=1}^N \log p(x_j^{(i)}|c^{(i)})=\textstyle\sum_{i=1}^N c^{(i)}\\
+    &\curbra{x_j^{(i)}\log\th_{j1}+(1-x_j^{(i)})\log(1-\th_{j1})}\\
+    &+\textstyle\sum_{i=1}^N(1-c^{(i)})\\
+    &\curbra{x_j^{(i)}\log\th_{j0}+(1-x_j^{(i)})\log(1-\th_{j0})}
+\end{align*}
+Inference: Compute numerator of $p(c|x)=\frac{p(c)p(x|c)}{\sum_{c'}p(c')p(x|c')}$
+
+data sparsity: overfit when data too little\\
+MLE: observations are R.V., parameters fixed\\
+Bayesian: parameters as R.V., prior distr. $p(\th)$, likelihood $p(\cal{D}|\th)$\\
+Update Posterior distr of $\th$: $p(\th|\cal{D})=\frac{p(\th) p(\cal{D}|\th)}{\int p(\th')p(\cal{D}|\th')\D \th'}$\\
+E.g. coin $L(\th)=p(\cal{D}|\th)=\th^{N_H}(1-\th)^{N_T}$, choose prior beta $p(\th; a,b)=\frac{\Ga(a+b)}{\Ga(a)\Ga(b)}\th^{a-1}(1-\th)^{b-1}$ (ignore normalization)\\
+$p(\th|\cal{D})\propto \sqrbra{\th^{a-1}(1-\th)^{b-1}}\sqrbra{\th^{N_H}(1-\th)^{N_T}}$\\
+which is beata with $a'=(a+)N_H, b'=(b+)N_T$\\
+Posterior: $\mathbb{E}[\th|\cal{D}]=\frac{N_H+a}{N_H+H_T+a+b}$\\
+Maximum A-Posteriori Estimation: find most likely para. setting under posterior; converts par esti. to maxi. prob.\\
+$\hat{\th}=\arg \max_\th p(\th | \cal{D})=\arg \max_\th \log p(\th) + \log p(\cal{D}|\th)=\frac{N_H+a-1}{N_H+N_T+a+b-2}$
+\end{multicols*}
+
 
 \end{document}

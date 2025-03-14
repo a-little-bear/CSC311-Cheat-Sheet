@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1739951769 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC311/CheatSheet/CSC311-Cheat-Sheet/CSC311.tex" "CSC311.pdf" "CSC311" 1739951771 0
-  "CSC311.aux" 1739951771 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
-  "CSC311.out" 1739951771 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "CSC311.tex" 1739951766 10627 c727889676eae2c47bf5e7aa53ca675b ""
+["pdflatex"] 1741985965 "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC311/CheatSheet/CSC311-Cheat-Sheet/CSC311.tex" "CSC311.pdf" "CSC311" 1741985967 0
+  "CSC311.aux" 1741985967 162 87159b23cce7c2b923b11c85495bbd6d "pdflatex"
+  "CSC311.out" 1741985967 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "CSC311.tex" 1741985964 22354 85e09d45625131467ba05c14ad759eab ""
   "CheatSheet/clsfiles/shortcuts.sty" 1738846764 5341 2609a7dc18ca22ddf2b547e16def8f11 ""
   "CheatSheet/clsfiles/tcbthm.sty" 1738640750 13615 60fb8a51e462dfbd0d798938f4f72e52 ""
   "CheatSheet/hw.cls" 1739951733 9055 af145eb57169dfc171af3f811d379b74 ""
@@ -230,7 +230,7 @@
   "c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1699479960 4753631 ce11096d3ddebebb488d7abe23a051aa ""
   "c:/Program Files/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1699480103 8213025 3bd61feff7b9dff35f8a668730b4a750 ""
   "c:/Program Files/texlive/2023/texmf.cnf" 1699479938 713 e69b156964470283e0530f5060668171 ""
-  "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC311/CheatSheet/CSC311-Cheat-Sheet/CSC311.tex" 1739951766 10627 c727889676eae2c47bf5e7aa53ca675b ""
+  "c:/Users/alitt/OneDrive - University of Toronto/Courses/Computer Science/CSC311/CheatSheet/CSC311-Cheat-Sheet/CSC311.tex" 1741985964 22354 85e09d45625131467ba05c14ad759eab ""
   (generated)
   "CSC311.aux"
   "CSC311.log"

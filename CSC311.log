@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  19 FEB 2025 02:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.8)  14 MAR 2025 16:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -994,7 +994,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--139
 
 [1
 
-{c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] (./CSC311.aux)
+{c:/Program Files/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Program Files/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+Underfull \hbox (badness 6510) in paragraph at lines 183--220
+\OML/lmm/m/it/6 x[]; x[] \OMS/lmsy/m/n/6 ! \OML/lmm/m/it/6 z[]; z[] \OMS/lmsy/m/n/6 ! \OML/lmm/m/it/6 y[]; y[] \OMS/lmsy/m/n/6 ! L$\OT1/lmr/m/n/6 (+20) ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--220
+\OML/lmm/m/it/6 w[]; b[]; w[] \OMS/lmsy/m/n/6 ! \OML/lmm/m/it/6 z[]\OT1/lmr/m/n/6 (+20) ; \OML/lmm/m/it/6 w[]; b[]; w[] \OMS/lmsy/m/n/6 !
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--251
+\OT1/lmr/m/n/6 (+20) Decreases cor-re-la-tion be-tween clas-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--251
+\OT1/lmr/m/n/6 (+20) si-fiers by adding ran-dom-ness
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--251
+\OT1/lmr/m/n/6 (+20) If $\OML/lmm/m/it/6 y[]$ \OT1/lmr/m/n/6 (+20) are i.i.d. Bernoullis, then
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--251
+\OML/lmm/m/it/6 p\OT1/lmr/m/n/6 (+20) (\OML/lmm/m/it/6 y[]; :::; y[]\OMS/lmsy/m/n/6 j\OML/lmm/m/it/6 ^^R\OT1/lmr/m/n/6 (+20) ) = [][] \OML/lmm/m/it/6 p\OT1/lmr/m/n/6 (+20) (\OML/lmm/m/it/6 y[]\OMS/lmsy/m/n/6 j\OML/lmm/m/it/6 ^^R\OT1/lmr/m/n/6 (+20) ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--299
+\OT1/lmr/m/n/6 (+20) and $\OML/lmm/m/it/6 p\OT1/lmr/m/n/6 (+20) (\OML/lmm/m/it/6 x\OMS/lmsy/m/n/6 j\OML/lmm/m/it/6 c\OT1/lmr/m/n/6 (+20) )$ (us-ing $2[] \OMS/lmsy/m/n/6 ^^@ \OT1/lmr/m/n/6 (+20) 1$ en-tries)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--326
+\OML/lmm/m/it/6 ^^R\OT1/lmr/m/n/6 (+20) )[]$, choose prior beta $\OML/lmm/m/it/6 p\OT1/lmr/m/n/6 (+20) (\OML/lmm/m/it/6 ^^R\OT1/lmr/m/n/6 (+20) ; \OML/lmm/m/it/6 a; b\OT1/lmr/m/n/6 (+20) ) =
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.326 \end{multicols*}
+                       [2] (./CSC311.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2020/03/25>
@@ -1003,18 +1048,18 @@ Package rerunfilecheck Info: File `CSC311.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 36445 strings out of 474272
- 690270 string characters out of 5744472
- 2000533 words of memory out of 5000000
- 57992 multiletter control sequences out of 15000+600000
- 583899 words of font info for 101 fonts, out of 8000000 for 9000
+ 36463 strings out of 474272
+ 690522 string characters out of 5744472
+ 2005533 words of memory out of 5000000
+ 57996 multiletter control sequences out of 15000+600000
+ 584410 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 118i,16n,121p,2841b,587s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 118i,16n,121p,2841b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Program Files/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on CSC311.pdf (1 page, 174632 bytes).
+Output written on CSC311.pdf (2 pages, 203476 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 102 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
  12397 words of extra memory for PDF output out of 14400 (max. 10000000)
 
