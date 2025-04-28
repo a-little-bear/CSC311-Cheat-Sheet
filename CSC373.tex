@@ -54,7 +54,40 @@ For application of network flow, first show 1-1 correspondence between feasible 
 - Circulation: Negative supply node $v$ with value $k$ sends $d(v)=k$ more flow than it receives; positive demand node $v$ with value $k$ receives $d(v)=k$ more flow than it sends; zero node is transshipment node; Connect supply nodes with $s$, demand nodes with $t$, then circulation exists iff max flow value equals the sum of supplies.\\
 - Circulation with Lower Bounds: For lower bound $k$ between $u$ and $v$, add $k$ to $d(u)$ and $-k$ to $d(v)$, subtract $k$ from upper bound\\
 - Survey Design: Connect $s$ to each customer with bounds $[c_i,c_i']$, connect each customer to each survey with $[0,1]$, connect each survey to $t$ with bounds $[p_j,p_j']$, edge from $s$ to $t$ with $[0,\infty]$ (so that all nodes $d(v)=0$)\\
-- Image Segmentation: Find min cut to segment image into two parts\\
+- Image Segmentation: Find min cut to segment image into two parts
+
+\tbf{Linear Programming}: Inputs $c\in\R^n, A\in\R^{m\times n}, b\in\R^m$ with $n$ variables and $m$ constraints\\
+Goal is to minimize $c^Tx$ subject to $Ax\le b, x\ge 0$\\
+Flip sign to change $\ge$ to $\le$, put both $\ge$ and $\le$ to get equality, negate minimization problem to turn into maximization, replace $x$ with $x'-x''$ to be unconstrained\\
+LP may be infesible or unbounded, but optimal implies vertex optimal.\\
+Slack form: minimize $z=c^Tx$ subject to $s=b-Ax, x,s\ge0$
+
+- Simplex Algorithm: Start with a vertex $v$ of the fesible region, while there is a neighbor $v'$ of $v$ with better objective value, move to $v'$ (worst case exponential)\\
+Start with $x=0$ assuming $b\ge0$, then increase a variable $x$ with \tbf{positive} coefficient of $z$ until it hits a constraint (subsitute other non-basic or non-leading variables for constraints, then isolate $x$ and substitute $\ge0$), replace that constraint line with $x$ isolated (then treat this variable as a constraint), and replace all occurences of $x$ to the line\\
+repeat until no more entering variable (positive coefficients on $z$ line)
+
+Convert $b\le0$ cases:\\
+Start with $Ax\le b$; change to $Ax+s=b$; flip signs s.t. $A'x+s'=b'$ for $b'\ge0$; finally change to $A'x+s'+z=b'$ with minimizing $\sum_i z_i$. If 0 is optimal then substitute back to get solution, otherwise infeasible
+
+We operate the constraints (in different ways) to simulate the objective function to get an upper bound, this shows as a certificate of optimality of the solution\\
+I.e. let $y$ be the multiplers, have something like $(y_1+y_3)x_1+(y_2+y_3)x_2\le 200y_1+300y_2+400y_3$, then make left as the objective function, minimize $200y_1+300y_2+400y_3=y^Tb$ subject to $y_1+y_3\ge1,y_2+y_3\ge6, y\ge0$\\
+This is called the dual LP ($m$ variables and $n$ constraints), of the primal LP (original)\\
+Dual solution gives upper bound on primal solution\\
+$c^Tx=y^Tb$ if one of primal or dual LP has solution.
+
+\tbf{Complexity}: NP-complete: in NP and is NP-hard: reduce from a known NP-complete problem
+
+\tbf{Approximation Algorithms}: approximation ratio for maximization is OPT(I)/ALG(I), worst case $\al=\max_I\{OPT(I)/ALG(I)\}$\\
+For minimization, ratio ALG(I)/OPT(I)\\
+PTAS: polynomial time approximation scheme; $\forall \vep>0$, exists (1+$\vep$)-approximation algorithm runs in polynomial time on size $n$\\
+FPTAS: Fully PTAS, runs in polynomial time on size $n$ and $1/\vep$
+
+Greedy Makespan gives 4/3-1/3m-approximation (longest job first)\\
+
+\tbf{Randomized algorithm}: $RP: x\in A, 99\%, x\notin A, 0\%, BPP: x\in A, 99\%, x\notin A, 1\%, NP, x\in A>,0, x\notin A ,0$\\
+
+
+
 
 \end{multicols*}
 
