@@ -1,0 +1,290 @@
+\documentclass[10pt]{LatexTemplate/hw}
+\useclspackage{mat247}
+
+\begin{document}
+
+\begin{multicols*}{2}
+\section{Eigenvalues and eigenvectors}
+Eigenvalues are the roots of the characteristic polynomial $p_T(z)=\det(zI-T)$.\\
+Algebric multiplicity of $\la$ is the multiplicity of $\la$ as a root of $p_T(z)$.\\
+Geometric multiplicity of $\la$ is the dimension of the eigenspace $E_\la(T)=\ker(T-\la I)$.
+\subsection{Diagonalizability}
+$T$ is diagonalizable if and only if the characteristic polynomial splits, and the geometric multiplicity of each eigenvalue is equal to its algebraic multiplicity.\\
+That is, there exists an eigenbasis of $T$, or equivalently, $V$ is a direct sum of eigenspaces of $T$.
+\subsection{Compute eigenvectors, eigenvalues, and multiplicities}
+\newn{
+    For $A=\begin{pmatrix}
+        1 & 1 & 1\\
+        0 & 1 & 0\\
+        0 & 1 & 2
+    \end{pmatrix}$, $p_A(z)=\det(zI-A)=\det\begin{pmatrix}
+        z-1 & -1 & -1\\
+        0 & z-1 & 0\\
+        0 & -1 & z-2
+    \end{pmatrix}=(z-1)^2(z-2)$.\\
+    Eigenvalues are $\la=1, 2$.\\
+    Algebric multiplicity of $\la=1$ is $2$, and of $\la=2$ is $1$.\\
+    Geometric multiplicity of $\la=1$ is: $\dim(\ker(A-I))$, since $\begin{pmatrix}
+        0 & -1 & -1\\
+        0 & 0 & 0\\
+        0 & -1 & -1
+    \end{pmatrix}$ has rank $1$, the geometric dimension is $2$.\\
+    To find the eigenvectors of $\la=1$, solve the homogenous system, $\begin{pmatrix}
+        0 & -1 & -1\\
+        0 & 0 & 0\\
+        0 & -1 & -1
+    \end{pmatrix}\to\begin{pmatrix}
+        0 & 1 & 1\\
+        0 & 0 & 0\\
+        0 & 0 & 0
+    \end{pmatrix}$, then $(1,0,0), (0,1,-1)$ are the eigenvectors.\\
+    Geometric multiplicity of $\la=2$ is 1 since it is at least 1 and at most the algebric multiplicity 1.\\
+    To find the eigenvectors of $\la=2$, solve the homogenous system, $\begin{pmatrix}
+        1 & -1 & -1\\
+        0 & 1 & 0\\
+        0 & -1 & 0
+    \end{pmatrix}\to\begin{pmatrix}
+        1 & 0 & -1\\
+        0 & 1 & 0\\
+        0 & 0 & 0
+    \end{pmatrix}$, then $(1,0,1)$ is the eigenvector.
+
+}
+\section{Normal forms for linear transformations}
+\subsection{Invariant subspaces, cyclic subspaces}
+$T$-invariant if $T(W)\subseteq W$.\\
+$T$-cyclic if $W=\operatorname{span}\{v,T(v),T^2(v),...\}$.\\
+For finite dimension $W$, $W=\operatorname{span}\{v,T(v),T^2(v),...,T^{k-1}(v)\}$ for some $k$.
+\subsection{Companion matrix}
+If $V$ admits a $T$-cyclic vector $v$, then with basis $\be=\{v,T(v),T^2(v),...\}$, $[T]_{\be}=
+\begin{pmatrix}
+0 & 0 & 0 & \cdots & 0 & -a_0 \\
+1 & 0 & 0 & \cdots & 0 & -a_1 \\
+0 & 1 & 0 & \cdots & 0 & -a_2 \\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\
+\cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\
+0 & 0 & 0 & \cdots & 1 & -a_{n-1}
+\end{pmatrix}$, with $p_T(z)=a_0+...+z^n$.
+\subsection{Compute Jordan form}
+$T$ admites a unique Jordan canonical form (up to permutation) if and only if the characteristic polynomial splits.\\
+Jordan block $J(\la,k)=\left.\left(
+\begin{array}
+{ccccc}\lambda & 1 & 0 & \cdots & 0 \\
+0 & \lambda & 1 & \cdots & 0 \\
+\vdots & & & & \vdots \\
+0 & 0 & 0 & \cdots & 1 \\
+0 & 0 & 0 & \cdots & \lambda
+\end{array}\right.\right)\in M_{k\times k}(\mathbb{F})$\\
+$N$ nilpotent if $N^k=0$ for some $k$.\\
+Find JCF:
+\begin{enumerate}
+    \item Compute eigenvalues of $T$ (roots of $p_T(z)$).
+    \item Compute geometric multiplicities of eigenvalues (number of Jordan blocks of type $\la$).
+    \item Compute algebric multiplicities of eigenvalues (sum of sizes of Jordan blocks of type $\la$).
+    \item Largest Jordan block of type $\la$ with size $k$ is the smallest $k$ such that $\rank(T-\la I)^k=\rank(T-\la I)^{k+1}$.
+\end{enumerate}
+
+\newn{
+    For $A=\begin{pmatrix}
+    2 & 1 & 0 & 1 & 1 \\
+    0 & 2 & 1 & 0 & -1 \\
+    0 & 0 & 2 & 0 & 0 \\
+    0 & 0 & 0 & 2 & 1 \\
+    0 & 0 & 0 & 0 & 2
+    \end{pmatrix}$, $p_A(z)=(z-2)^5$. \\
+    Then since $A-2I=\begin{pmatrix}
+    0 & 1 & 0 & 1 & 1 \\
+    0 & 0 & 1 & 0 & -1 \\
+    0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 & 0
+    \end{pmatrix}$ has rank 3 and nullity 2, the geometric multiplicity is $2$, so there are 2 Jordan blocks of type $2$ (total size of 5).\\
+    Since $(A-2I)^2=\begin{pmatrix}
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0
+    \end{pmatrix}$ and $(A-2I)^3=0$, the largest Jordan block of type $2$ is of size $3$.
+
+    Then the remaining one has size $2$.\\
+    Giving $J=\begin{pmatrix}
+    2 & 1 & 0 & 0 & 0 \\
+    0 & 2 & 0 & 0 & 0 \\
+    0 & 0 & 2 & 1 & 0 \\
+    0 & 0 & 0 & 2 & 1 \\
+    0 & 0 & 0 & 0 & 2
+    \end{pmatrix}$
+}
+
+\subsection{Find Jordan basis}
+\newn{
+    For $A=
+    \begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    0 & 1 & 0 & -1 \\
+    0 & 0 & 1 & 1 \\
+    0 & 0 & 0 & 1
+    \end{pmatrix}, p_A(z)=(z-1)^4, A-I=
+    \begin{pmatrix}
+    0 & 1 & 1 & 1 \\
+    0 & 0 & 0 & -1 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0
+    \end{pmatrix}$, nullity is $2$, so there are 2 Jordan blocks of type $1$ (with total size 4).\\
+    Since $(A-I)^2=0$, the sizes are $2$ and $2$.
+
+    To find the Jordan basis, first pick $v=(0,1,0,0)$ not in the kernel of $A-I$, then $v$ with $(A-I)(v)=(1,0,0,0)$ generate the first Jordan block.\\
+    Then pick $w=(0,0,0,1)$ such that $w$ and $(A-I)(w)=(1,-1,1,0)$ are linearly independent with $v, (A-I)v$, and $w$ is not in the kernel of $A-I$.
+
+    Let $C=(v,(A-I)v,w,(A-I)w)$, then $C^{-1}AC=J$ where $J$ is the Jordan form.
+}
+
+\section{Minimal polynomial}
+\subsection{Cayley-Hamilton theorem}
+The characteristic polynomial $p_T(z)$ satisfies $p_T(T)=0$.
+\subsection{Minimal polynomial}
+Let $k$ be the smallest such that $I,T,T^2,...,T^k$ are linearly dependent. Then exists unique coefficients such that $a_0I+a_1T+...+a_kT^k=0$.\\
+$q_T(z)=a_0+a_1z+...+a_kz^k$ the minimal polynomial of $T$.\\
+$p_T(z)$ may not be the minimal polynomial.\\
+The minimal polynomial divides the characteristic polynomial.\\
+Eigenvalues of $T$ are roots of the minimal polynomial.\\
+$T$ has $T$-cyclic vector $v$ if and only if $q_T(z)=p_T(z)$.
+\subsection{Read minimal polynomial from JCF}
+If $p_T(z)$ splits, then $p_T(z)$ has powers the algebric multiplicities; $q_T(z)$ has powers the size of the largest Jordan blocks.
+
+$T$ diagonalizable if and only if $q_T(z)$ splits with no powers.\\
+So, if there is a unique Jordan block of each type, then $p_T(z)=q_T(z)$.
+\subsection{Get JCF from minimal polynomial}
+Compute each $(A-\la I)^k$ and find the largest size of the Jordan block of type $\la$, then if all $k$ matches the algebric multiplicity, then $p_T(z)=q_T(z)$.
+\section{Inner product spaces}
+Real inner product is a symmetric positive definite bilinear map $\arr{\cdot,\cdot}:V\times V\to\R$.\\
+Complex inner product is a positive definite map to $\C$ s.t.: linear in the first argument, $\arr{v,w}=\overline{\arr{w,v}}$ (so conjugate linear in the second argument).\\
+Inner product space has norm $\norm{v}=\sqrt{\arr{v,v}}$.
+\subsection{Projection}
+$v,w$ orthogonal if $\arr{v,w}=0$.\\
+From $0=\arr{v-aw,w}=\arr{v,w}-a\norm{w}^2$, we have $a=\frac{\arr{v,w}}{\norm{w}^2}$.\\
+So, define projection $\operatorname{proj}_w(v)=\frac{\arr{v,w}}{\norm{w}^2}w$.
+\subsection{Triangle inequality and Cauchy-Schwarz inequality}
+\tbf{Cauchy-Schwarz}: $|\arr{v,w}|\le \norm{v}\norm{w}$, equality holds if and only if $v$ and $w$ are linearly dependent (derived from splitting $v$ to $\operatorname{proj}_w(v)$ and $v-\operatorname{proj}_w(v)$ and apply Pythagorean).\\
+\tbf{Triangle Inequality}: $\norm{v+w}^2=\norm{v}^2+2\operatorname{Re}\arr{v,w}+\norm{w}^2\le\norm{v}^2+2|\arr{v,w}|+\norm{w}^2\le(\norm{v}+\norm{w})^2$.\\
+So, $\norm{v+w}\le\norm{v}+\norm{w}$.\\
+Equality holds if and only if $w=0$ or $v=\la w$ for $\la\ge0$.
+\subsection{Orthogonal and orthonormal bases}
+Orthogonal basis is a basis $\be=\{v_1,...,v_n\}$ such that $\arr{v_i,v_j}=0$ for $i\ne j$.\\
+Orthonormal basis can be obtained from orthogonal basis by replacing $v$ with $\frac{v}{\norm{v}}$.
+
+For orthonormal basis $v_1,...,v_n$, $v=a_1v_1+...+a_nv_n=\sum_{j=1}^n\arr{v,v_j}v_j$\\
+$\arr{v,w}=\sum_{j=1}^n a_j\overline{b_j}$
+\subsection{Gram-Schmidt algorithm}
+Orthogonal basis:
+\begin{enumerate}
+    \item Let $y_1,...,y_n$ be any basis of $V$.
+    \item $u_1=y_1$.
+    \item $u_{k+1}=y_{k+1}-\sum_{j=1}^k\operatorname{proj}_{u_j}(y_{k+1})$.
+\end{enumerate}
+We may normalize throughout or after the algorithm to get orthonormal basis.\\
+\newn{
+    For $=P_2(\R), \arr{p,q}=p(0)q(0)+p(1)q(1)+p(2)q(2)$.\\
+    Fix basis $x, x^2$.\\
+    Let $u_1=\frac{x}{\norm{x}}=\frac{x}{\sqrt5}$.\\
+    And $u_2'=x^2-\operatorname{proj}_{u_1}(x^2)=x^2-\frac{\arr{x^2,u_1}}{\norm{u_1}^2}u_1=x^2-\arr{x^2,u_1}u_1=x^2-\frac{9}{\sqrt5}\frac{x}{\sqrt5}=x^2-\frac95 x$, which gives $u_2=\frac{u_2'}{\norm{u_2'}}=\frac{\sqrt5}2 x^2-\frac{2\sqrt5}{10}x$
+}
+\subsection{Orthogonal complements}
+Let $W^\perp=\{v\in V:\arr{v,w}=0,\forall w\in W\}$ be the orthogonal subspace of $W$.\\
+$W\cap W^\perp=\{0\}$, $W\subseteq (W^\perp)^\perp$, with equality holds if $W$ is finite dimensional.
+\subsection{Orthogonal projections}
+Every direct sum $V=V_1\oplus V_2$ matches with a projection $P$ where $\ker(P)=V_1$ and $\ran(P)=V_2$.\\
+Call $P_W$ which matches $V=W\oplus W^\perp$ the orthogonal projection onto $W$.
+\subsection{Minimizing distance}
+$P_W v$ is the unique point in $W$ closest to $v$.\\
+$\norm{P_W v-v}\le\norm{x-v}$ for all $x\in W$, with equality if and only if $P_W v=x$.\\
+For orthonormal basis $v_1,...,v_m$ of $W$, $$P_W(v)=\sum_{j=1}^m\arr{v,v_j}v_j.$$
+
+\section{Adjoint operators}
+\subsection{Riesz representation theorem}
+For finite dimension $V$, $V\to V^*, y\mapsto \ell_y$ is a bijection. I.e. every linear functional $\ell\in V^*$ is of the form $\ell(v)=\arr{v,y}$ for some $y\in V$.\\
+Specifically, $y=\sum_{j=1}^n\overline{\ell(v_j)}v_j$ where $\be=\{v_1,...,v_n\}$ is an orthonormal basis of $V$.
+\subsection{Adjoint operator}
+For finite dimension $V$, for any $T\in\cal{L}(V,W)$, exists unique $T^*$ (adjoint operator to $T$) such that $\arr{Tv,w}=\arr{v,T^*w}$ for all $v\in V,w\in W$.\\
+$A^*=\overline{A}^T$\\
+$V=\ker(T)\oplus\ran(T^*), W=\ker(T^*)\oplus\ran(T)$
+\subsection{Self-Adjoint operator}
+Call $P$ self-adjoint if $P=P^*$.\\
+$P$ corresponds to $V=W\oplus U$ and $P^*$ corresponds to $V=U^\perp\oplus W^\perp$.\\
+$T$ is self-adjoint if and only if $P$ is an orthogonal projection.
+
+\subsection{Spectral theorem for self-adjoint operators}
+Since $A=A^*=\overline{A}^T$, for $\F=\R$, $A$ is symmetric, and for $\F=\C$, diagonal entries of $A$ are real.\\
+All eigenvalues of $A$ are real (implies at least one eigenvector).\\
+Eigenvectors with different eigenvalues are orthogonal.\\
+Self-adjoint $A$ is diagonalizable with real eigenvalues (by finding eigenvalues on induction).
+
+\subsection{Quadratic forms and their diagonalization}
+Define quadratic form $q(v)=\arr{Tv,v}=\la_1 y_1^2+...+\la_n y_n^2$ for self-adjoint $T$.\\
+Every quadratic form (real symmetric matrix and thus self-adjoint) can be put into diagonal form (diagonalized) by an orthogonal change of coordinates (eigenvectors).
+
+\subsection{Skew-adjoint operators}
+Call $S$ skew-adjoint if $S*=-S$.\\
+If $S$ is complex skew-adjoint, then $T=\frac1iS$ is self-adjoint.\\
+If $S$ is real skew-adjoint, then diagonal entries are all $0$.
+
+\subsection{Unitary operators}
+Call $T$ unitary if $T^*T=TT^*=I$.\\
+Unitary if and only if $T$ is invertible and $T^{-1}=T^*$.
+
+$\arr{Tv,Tw}=\arr{v,w}$ for all $v,w\in V$.\\
+$\norm{Tv}=\norm{v}$ for all $v\in V$.
+
+$T$ unitary if and only if its columns are an orthonormal basis of $\F^n$.\\
+eigenvalues of $T$ satisfy $|\la|=1$.
+
+\section{Normal operators}
+Call $T$ normal if $T^*T=TT^*$ commutes.\\
+Self-adjoint, skew-adjoint, and unitary are normal.\\
+Normal if and only if $\norm{Tv}=\norm{T^*v}$ for all $v\in V$.\\
+If $T$ normal, then eigenvector $v$ of $T$ is also an eigenvector of $T^*$, with $\la'=\overline{\la}$.
+\subsection{Spectral theorem for normal operators}
+$T$ normal if and only if exists orthonormal basis $\be=\{v_1,...,v_n\}$ of $V$ such that $T$ is diagonal in $\be$.
+\subsection{Spectral resolution (decomposition)}
+$T$ normal if and only if $T=\sum_{j=1}^n\la_jP_j$, where $\la_j$ are eigenvalues of $T$ and $P_j$ are orthogonal projections onto the eigenspaces of $T$.
+
+\subsection{Functional calculus}
+Let spectrum be the set of eigenvalues of $T$.\\
+If $T$ normal, then $T=\sum_{j=1}^n\la_jP_j$, which impies $T^*=\sum_{j=1}^n\overline{\la_j}P_j$.
+
+If $T$ normal, then 
+\begin{itemize}
+    \item self-adjoint if and only if $\la_j\in\R$.
+    \item unitary if and only if $\la_j\in\C$ with $|\la_j|=1$.
+\end{itemize}
+
+Using $P_\la P_\mu=0$ for $\la\ne\mu$, $q(T)=\sum_{j=1}^n q(\la_j)P_j$ for $q(z)$ polynomial.\\
+This holds more generally for any complex $f$ s.t.. $f(z)=\sum_{j=1}^n f(\la_j)P_j$.
+
+\subsection{Positive operators}
+$T$ is positive if it is self-adjoint and eigenvalues are non-negative.\\ 
+For complex $T$, positive if and only if $\arr{Tv,v}\ge0$ for all $v\in V$.
+
+For $2\times2$ positive matrix, find square root:
+\begin{enumerate}
+    \item Find eigenvalues $\la_1,\la_2$.
+    \item Find normalized eigenvectors $v_1,v_2$.
+    \item Let $U$ be unitary change of coordinate matrix with columns $v_1,v_2$, then $$U^*AU=\begin{pmatrix}
+    \la_1 & 0 \\
+    0 & \la_2
+    \end{pmatrix}$$ with $$\sqrt{A}=U\begin{pmatrix}
+    \sqrt{\la_1} & 0 \\
+    0 & \sqrt{\la_2}
+    \end{pmatrix}U^*$$
+\end{enumerate}
+\section{Decomposition theorems}
+\subsection{Polar decomposition of operators}
+For invertible $T$, exists unique unitary $U$ and positive $R$ such that $T=UR$.\\
+\subsection{Singular value decomposition}
+
+\end{multicols*}
+
+
+
+\end{document}
