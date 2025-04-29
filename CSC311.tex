@@ -1,4 +1,5 @@
 \documentclass[10pt]{CheatSheet/hw}
+\usepackage{bbm}
 
 \begin{document}
 
@@ -65,7 +66,6 @@ Previously we used \tbf{full batch gradient descent} of $\PP{\cal{E}}{w}$, we ma
 inner loop is \tbf{iteration} (each mini-batch), outer is \tbf{epoch} (one update)\\
 $\T{num\_iter}=\T{num\_epoch}* N / \T{batch\_size}$
 
-\columnbreak
 \tbf{Accuracy}: $\frac1N\sum_{i=1}^N \mathbb{I}[t^{(i)} = y^{(i)}]$\\
 \tbf{Error}: $1 - \text{Accuracy}$\\
 \rule{\linewidth}{0.4pt}
@@ -136,10 +136,7 @@ Linear Regression: Square error loss function, with average loss cost function\\
 Logistic Regression: Sigmoid function, with cross entropy loss function\\
 Decision Tree: Greedy method, with information gain loss function\\
 kNN: No training, with Euclidean distance for lower dimension $D$\\
-\end{multicols*}
-
-\np 
-\begin{multicols*}{5}
+\rule{\linewidth}{0.4pt}
 \tbf{Multi-class Classification}\\
 One-hot vector $t\in\R^K$ has 1 at the index of the correct class, 0 elsewhere, for $K$ targets\\
 For $y\in\R^K, \sum_{k=1}^K y_k=1$\\
@@ -322,7 +319,99 @@ $p(\th|\cal{D})\propto \sqrbra{\th^{a-1}(1-\th)^{b-1}}\sqrbra{\th^{N_H}(1-\th)^{
 which is beata with $a'=(a+)N_H, b'=(b+)N_T$\\
 Posterior: $\mathbb{E}[\th|\cal{D}]=\frac{N_H+a}{N_H+H_T+a+b}$\\
 Maximum A-Posteriori Estimation: find most likely para. setting under posterior; converts par esti. to maxi. prob.\\
-$\hat{\th}=\arg \max_\th p(\th | \cal{D})=\arg \max_\th \log p(\th) + \log p(\cal{D}|\th)=\frac{N_H+a-1}{N_H+N_T+a+b-2}$
+$\hat{\th}=\arg \max_\th p(\th | \cal{D})=\arg \max_\th \log p(\th) + \log p(\cal{D}|\th)=\frac{N_H+a-1}{N_H+N_T+a+b-2}$\\
+\rule{\linewidth}{0.4pt}
+\tbf{Gaussian Discriminate Analysis}\\
+Discriminative classifiers: Model $p(c|x)$ directly\\
+Generative classifiers: Model $p(x|c)$ then Bayes $p(c|x)$; flexiable - easy to change classes; handle missing data naturally; more natural
+
+Naive Bayes works for binary features, with Bernoulli distribution for each $p(x_j|c)$; for continuous features we use Gaussian distribution for each $p(x_j|c)$.
+
+E.g. First multivariate Gaussians model $p(x|c=0), p(x|c=1)$ then $p(c=1|x)=\frac{p(x|c=1)p(c=1)}{p(x|c=1)p(c=1)+p(x|c=0)p(c=0)}$\\
+\tbf{Gaussian Discriminant Analysis} generally assumes $p(x|c)$ is distributed as multivariate Gaussian $p(x|c=k)=\frac1{(2\pi)^{D/2}|\Sigma_k|^{1/2}}\exp\sqrbra{-\frac12(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k)}$, where $|\Sigma_k|$ denotes determinant. And each class $k$ has associated mean vector $\mu_k$ ($D$ par) and covariance matrix $\Sigma_k$ ($\cal{O}(D^2)$ par, hard to estimate).\\
+PDF of univariate Gaussian $\cal{N}(x;\mu,\si^2)=\frac1{\sqrt{2\pi}\si}\exp\bra{-\frac{(x-\mu)^2}{2\si^2}}$, multivariate $\cal{N}(x;\mu,\Si)=\frac{1}{(2\pi)^{D/2}|\Si|^{1/2}}\exp\sqrbra{-\frac12(x-\mu)^T\Si^{-1}(x-\mu)}$\\
+$\mu=\mathbb{E}[x]=(\mu_1,...,\mu_D)^T$, $\Si=\mathbb{E}[(x-\mu)(x-\mu)^T]=(\si_{ij})$\\
+\begin{align*}
+    \ell(\mu,\Si)&=\log\prod_{i=1}^N[...]=\sum_{i=1}^N -\log(2\pi)^{\frac{d}2}-\log|\Si|^{\frac12}\\
+    &-\frac12(x^{(i)}-\mu)^T\Si^{-1}(x^{(i)}-\mu)
+\end{align*} 
+Where first term is constant, $\mu$ only affects last term\\
+Maximize the log-likelihood by setting der to 0:
+\begin{align*}
+    \PP{\ell}{\mu_j}&=-\PP{}{\mu_j}\bra{\sum_{i=1}^N\frac12(x^{(i)}-\mu)^T\Si^{-1}(x^{(i)}-\mu)}\\
+    \nabla_\mu\ell&=-\sum_{i=1}^N\Si^{-1}(x^{(i)}-\mu)=0
+\end{align*}
+This gives $\hat{\mu}=\frac1N\sum_{i=1}^N x^{(i)}$\\
+Similarly, $0=\nabla_\Si\ell\implies\hat{\Si}=\frac1N\sum_{i=1}^N(x^{(i)}-\hat{\mu})(x^{(i)}-\hat{\mu})^T=\frac1N(X-\mathbbm{1}\hat{\mu}^T)(X-\mathbbm{1}\hat{\mu}^T)^T$\\
+Positive semidefinite if $v^TAv\ge0$ for all $v$, definite if $>0$.
+
+Since $p(c|x)=\frac{p(c)p(x|c)}{\sum_{c'}p(c')p(x|c')}$, this gives $\log p(c_k|x)=\log p(x|c_k)+\log p(c_k)-\log p(x)=-\frac{D}2\log(2\pi)-\frac12\log|\Si|-\frac12(x-\mu_k)^T\Si^{-1}(x-\mu_k)+\log p(c_k)-\log p(x)$\\
+Decision Boundary of GDA is a conic section since quadratic w.r.t. $x$.\\
+GDA makes stronger modeling assumption - assumes class-conditional data is multivariate Gaussian (asymptotically efficient if true, otherwise bad prediction), LR beats GDA if data is not Gaussian\\
+GDA can handle easily missing features\\
+Similar with shared covariance
+
+If $x$ high dimensional, $\Si_k$ too large, then assume features are independent ($\Si$ is diagonal). Gaussian Naive Bayes assumes the likelihoods are Gaussian\\
+\rule{\linewidth}{0.4pt}
+\tbf{Clustering}: unsupervised, group data points (multimodal distribution) into clusters\\
+K-means assumes $K$ clusters, and each point is close to cluster center: randomly initialize cluster centers, then alter between assignment step (assign each data point to closest cluster) and refitting step (move cluster centers to mean of assigned points)\\
+Find cluster center $m_k$ and assignments $r^{(n)}$ (one-hot) to minimize $$\min_{\{m_k\}, \{r^{(n)}\}}\sum_{n=1}^N\sum_{k=1}^K r_k^{(n)}\norm{m_k-x^{(n)}}^2$$
+Find exact is NP-hard; Assignment step = minimize w.r.t. $r^{(n)}$; Refitting step = minimize w.r.t. $m_k$\\
+Assignment Step: Fix $m_k$, then
+$r_k^{(n)}=1$ if $k=\arg\min_{j}\norm{x^{(n)}-m_{j}}^2$, else 0\\
+Refitting Step: Fix $r^{(n)}$, then $0=\nabla_{m_\ell}(\Si\Si...)$ gives $m_\ell=\frac{\sum_{n}r_\ell^{(n)}x^{(n)}}{\sum_n r_\ell^{(n)}}$\\
+Called alternating minimization, or block coordinate descent\\
+K-means give superpixels for images\\
+May change ont-hot $r$ to softmax: $r_k^{(n)}=\frac{\exp[-\be\norm{m_k-x^{(n)}}^2]}{\sum_{j=1}^K \exp[-\be\norm{m_j-x^{(n)}}^2]}$, $m_k$ remains same
+
+Bayes classifer: fit $p(t)$ and $p(x|t)$ using labelled data.\\
+For Clustering: Sample $t$ from $p(t)$, then sample $x$ from $p(x|t)$\\
+Since $t$ never observed, called \tbf{latent variable} or \tbf{hidden variable}, denote $z$ instead; $x$ called observables\\
+Then $p(x)=\sum_z p(x,z)=\sum_z p(x|z)p(z)$, called \tbf{latent variable model}\\
+If $p(z)$ is categorial distribution (multinomial), this is a \tbf{mixture model}, different values of $z$ correspond to different components
+
+\tbf{Gaussian Mixture Model GMM}: If $p(x|z)$ is Gaussian, then $p(x)=\sum_{k=1}^K \pi_k\cal{N}(x|\mu_k,\Si_k)$ with $\sum_{k=1}^K \pi_k=1, \pi_k\ge 0 \forall k$.\\
+GMMs are universal approximators of densities (same as MLPs)\\
+No closed form solution of GMM Maximum log-likelihood, not identifiable\\
+To maximize $\log p(X;\th)=\sum_{i=1}^N\log \sum_{k=1}^K \pi_k \cal{N}(x^{(i)}| \mu_k, \Si_k)$
+
+\tbf{Expectation-Maximization algorithm}:\\
+Expectation step: Compute posterior probability over $z$ given current modle - how much do we think each Gaussian generates each data point\\
+Assign responsibility $r_k^{(i)}$ of component $k$ for data point $i$ using $r_k^{(i)}=P(z^{(i)}=k|x^{(i)};\th)$\\
+Maximization step: Assume data really was generated this way, change parameters of each Gaussian to maximize probability that it would generate the data responsible for\\
+$\pi_k = \frac1N\sum_{i=1}^N r_k^{(i)}$, $\mu_k=\frac{\sum_{i=1}^N r_k^{(i)}x^{(i)}}{\sum_{i=1}^N r_k^{(i)}}$\\
+$\Si_k=\frac1{\sum_{i=1}^N r_k^{(i)}}\sum_{i=1}^N r_k^{(i)}(x^{(i)}-\mu_k)(x^{(i)}-\mu_k)^T$\\
+\rule{\linewidth}{0.4pt}
+
+\tbf{Principal Component Analysis PCA} is a \tbf{linear} dimensionality reduction technique\\
+Choose an orthonormal basis $\{u_i\}$ of the subspace $S$, then $\operatorname{Proj}_S(x)=\sum_{i=1}^k (u_i^Tx)u_i=Uz$ where $z=U^T x$\\
+Let $\hat{\mu}$ be the origin, then $z=U^T(x-\hat{\mu})$, $\tilde{x}=Uz+\hat{\mu}$ where $\tilde{x}$ called reconstruction of $x$ and $z$ called representation or code\\
+capping to a space that is easier to visualize is called representation, learning called representation learning
+
+$\hat{\mu}$ is the empirical mean of the data, $U$ can be constructed by minimizing the reconstruction error or maximizing the variance of the reconstruction $\min_U \frac1N\sum_{i=1}^N\norm{x^{(i)}-\hat{x}^{(i)}}^2$, $\max_U \frac1N\sum_{i=1}^N\norm{\hat{x}^{(i)}-\hat{\mu}}^2$ (equiv.)\\
+Since $U^TU=I$, the last is same as $\norm{z}^2$
+
+Choosing a subsapce to maximize the projected variance, or minimize the reconstruction error, is called \tbf{PCA} 
+
+Consider the empirical covariance matrix $\hat{\Si}=\frac1N\sum_{i=1}^N(x^{(i)}-\hat{\mu})(x^{(i)}-\hat{\mu})^T=Q\La Q^T$ where $Q$ is orthogonal and $\La$ is diagonal; then the optimal PCA subspace is spanned by the top (largest) $K$ eigenvectors of $\hat{\Si}$\\
+Eigenvectors are called \tbf{principal components}
+
+For $K=1$, $u$ a unit vector, $z$ scalar
+\begin{align*}
+    &\frac1N\sum_i\norm{\tilde{x}^{(i)}-\hat{\mu}}^2=\frac1N\sum_i[z^{(i)}]^2\\
+    &=\frac1N\sum_i(u^T(x^{(i)}-\hat{\mu}))^2=\frac1N\sum_i u^T(x^{(i)}-\hat{\mu}))(x^{(i)}-\hat{\mu}))^T u\\
+    &= u^T \hat{\Si}u=u^TQ\La Q^T u=\sum_{j=1}^D \la_j a_j^2, a=Q^T u
+\end{align*}
+\rule{\linewidth}{0.4pt}
+Naive Bayes: Let $p(c=1)=\pi$ be a Bernuolli, then let $\th_{ij}$ denote $p(x_i=1|c=j)$ for $i\in[3], j\in\{0,1\}$\\
+$p(c=0|x_1=1)=\frac{p(c=0)}{p(x_1=1)}p(x_1=1|c=0)=\frac{1-\pi}{p(x_1=1|c=1)p(c=1)+p(x_1=1|c=0)p(c=0)}\th_{10}$\\
+$p(x_1=1|c=1)=\frac{p(x_1=1,c=1)}{p(c=1)}$\\
+\rule{\linewidth}{0.4pt}
+For $p(c=1)=\pi$ Bernuolli, $p(c)=\pi^c(1-\pi)^{1-c}$\\
+\rule{\linewidth}{0.4pt}
+If for MLP, $a$ is sent to $z_1,z_2$, then $\PP{\cal{L}}{a}=\PP{\cal{L}}{z_1}\PP{z_1}{a}+\PP{\cal{L}}{z_2}\PP{z_2}{a}$\\
+\rule{\linewidth}{0.4pt}
+For linear separability, consider the intersection to show false\\
 \end{multicols*}
 
 
